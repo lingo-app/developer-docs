@@ -3,6 +3,27 @@ const request = require('request')
 
 const Lingo = function () { }
 
+class LingoError extends Error {
+    constructor(json) {
+        super(json.message || 'An unexpected error occured')
+        this.code = json.code || 1
+    }
+}
+function parseJSONResponse(body) {
+    if (body.success === true) {
+        return body.result
+    } else if (body.success === false) {
+        throw new LingoError(body.error)
+    } else {
+        console.log("Response is missing success flag " + body)
+        throw new LingoError({
+            code: 1,
+            message: 'Unexpected server response'
+        })
+    }
+}
+
+
 /**
  * Set your API auth credientials before using making any calls
  * @param {integer} spaceID The id of your Lingo space
@@ -85,36 +106,63 @@ Lingo.prototype.searchAssetsInKit = function (kitID, version, query, page, limit
     return this.call('GET', path, params)
 }
 
-Lingo.prototype.call = function (method, path, more = {}) {
-    const req = {
-        uri: 'http://local.lingoapp.com:9000/alpha' + path,
-        method: method,
-        json: true,
-        headers: {
-            'Authorization': this.auth,
-            'test': 'Hello',
-        },
-        ...more
-    }
-
-    const promise = new Promise(function (resolve, reject) {
+Lingo.prototype.downloadAsset = function (uuid, type = null) {
+    let path = `/alpha/assets/${uuid}/download`
+    const req = this._requestParams('GET', path, {
+        qs: { type },
+        json: false,
+        encoding: null
+    })
+    return new Promise(function (resolve, reject) {
         request(req, function (err, response, body) {
             if (body) {
-                if (body.success === true) {
-                    resolve(body.result)
-                } else if (body.success === false) {
-                    reject(body.error)
+                contentType = response.caseless.get('Content-Type')
+                if (contentType.indexOf('json') >= 0) {
+                    try {
+                        resolve(parseJSONResponse(body))
+                    } catch (err) {
+                        reject(err)
+                    }
                 } else {
-                    console.log("Response is missing success flag " + body)
-                    reject('Unexpecte response')
+                    resolve(body)
                 }
             } else {
                 reject(err)
             }
         })
     })
-    return promise
 }
+
+Lingo.prototype._requestParams = function (method, path, more) {
+    let req = {
+        uri: 'http://local.lingoapp.com:9000/alpha' + path,
+        method: method,
+        json: true,
+        headers: {},
+        ...more
+    }
+    req.headers.Authorization = this.auth
+    return req
+}
+
+Lingo.prototype.call = function (method, path, more = {}) {
+    const req = this._requestParams(method, path, more)
+    return new Promise(function (resolve, reject) {
+        request(req, function (err, response, body) {
+            if (body) {
+                try {
+                    resolve(parseJSONResponse(body))
+                } catch (err) {
+                    reject(err)
+                }
+            } else {
+                reject(err)
+            }
+        })
+    })
+}
+
+
 
 module.exports = new Lingo()
 

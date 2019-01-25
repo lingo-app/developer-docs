@@ -56,8 +56,9 @@ Lingo.prototype.fetchSection = function (id, page = 1, limit = 50) {
 }
 
 /**
- * Fetch a section and optionally page through items with it
- * @returns {Promise} Success the section and the items matching the page/limit
+ * Search the items in a kit.
+ *
+ * @returns {Promise} Returns the results, grouped by section.
  */
 Lingo.prototype.searchAssetsInKit = function (kitID, query, page, limit) {
     let path = `/kits/${kitID}/search`

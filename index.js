@@ -3,12 +3,28 @@ const request = require('request')
 
 const Lingo = function () { }
 
+/**
+ * Set your API auth credientials before using making any calls
+ */
+Lingo.prototype.setup = function (space_id, token) {
+    console.log(`space id: ${space_id} token: ${token}`)
+    this.auth = "Basic " + new Buffer(space_id + ":" + token).toString("base64")
+}
+
+/**
+ * Fetch all kits in your space
+ * @returns {Promise} Success returns a list of kit objects
+ */
 Lingo.prototype.fetchKits = function () {
     return this.call('GET', '/kits').then(res => {
         return res.kits
     })
 }
 
+/**
+ * Fetch a single kit and it's versions
+ * @returns {Promise} Success returns a kit
+ */
 Lingo.prototype.fetchKit = function (id, options = ['use_versions']) {
     let path = `/kits/${id}/?options=${options.join(',')}`
     return this.call('GET', path).then(res => {
@@ -16,6 +32,10 @@ Lingo.prototype.fetchKit = function (id, options = ['use_versions']) {
     })
 }
 
+/**
+ * Fetch the outline for a kit
+ * @returns {Promise} Success returns a list of sections and headers
+ */
 Lingo.prototype.fetchKitOutline = function (id) {
     let path = `/kits/${id}/outline`
     return this.call('GET', path).then(res => {
@@ -23,6 +43,10 @@ Lingo.prototype.fetchKitOutline = function (id) {
     })
 }
 
+/**
+ * Fetch a section and optionally page through items with it
+ * @returns {Promise} Success the section and the items matching the page/limit
+ */
 Lingo.prototype.fetchSection = function (id, page = 1, limit = 50) {
     let path = `/sections/${id}`
     let params = { qs: { page, limit } }
@@ -31,9 +55,14 @@ Lingo.prototype.fetchSection = function (id, page = 1, limit = 50) {
     })
 }
 
-Lingo.prototype.setup = function (space_id, token) {
-    console.log(`space id: ${space_id} token: ${token}`)
-    this.auth = "Basic " + new Buffer(space_id + ":" + token).toString("base64")
+/**
+ * Fetch a section and optionally page through items with it
+ * @returns {Promise} Success the section and the items matching the page/limit
+ */
+Lingo.prototype.searchAssetsInKit = function (kitID, query, page, limit) {
+    let path = `/kits/${kitID}/search`
+    let params = { qs: { query, page, limit } }
+    return this.call('GET', path, params)
 }
 
 Lingo.prototype.call = function (method, path, more = {}) {

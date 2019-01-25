@@ -48,3 +48,14 @@ it('Should fetch section and items', function (done) {
         done(err)
     })
 })
+
+it('Should fetch search results', function (done) {
+    lingo.searchAssetsInKit(config.kitID, query = 'a').then(results => {
+        assert(results, 'expected sections')
+        assert(results.query == 'a', 'expected query to natcg')
+        assert(results.sections, 'expected results')
+        done()
+    }).catch(err => {
+        done(err)
+    })
+})

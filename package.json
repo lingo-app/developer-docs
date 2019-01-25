@@ -1,0 +1,13 @@
+{
+    "name": "Lingojs",
+    "version": "0.1.0",
+    "scripts": {
+        "test": "mocha"
+    },
+    "dependencies": {
+        "request": "2.88"
+    },
+    "devDependencies": {
+        "mocha": "^5.2.0"
+    }
+}

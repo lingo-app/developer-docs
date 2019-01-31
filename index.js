@@ -135,7 +135,7 @@ Lingo.prototype.downloadAsset = function (uuid, type = null) {
 
 Lingo.prototype._requestParams = function (method, path, more) {
     let req = {
-        uri: 'http://local.lingoapp.com:9000/alpha' + path,
+        uri: 'http://api.lingoapp.com/alpha' + path,
         method: method,
         json: true,
         headers: {},

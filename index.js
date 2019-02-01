@@ -107,7 +107,7 @@ Lingo.prototype.searchAssetsInKit = function (kitID, version, query, page, limit
 }
 
 Lingo.prototype.downloadAsset = function (uuid, type = null) {
-    let path = `/alpha/assets/${uuid}/download`
+    let path = `/assets/${uuid}/download`
     const req = this._requestParams('GET', path, {
         qs: { type },
         json: false,

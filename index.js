@@ -30,7 +30,6 @@ function parseJSONResponse(body) {
  * @param {string} token An API token for your space
  */
 Lingo.prototype.setup = function (spaceID, token) {
-//     console.log(`space id: ${spaceID} token: ${token}`)
     this.auth = "Basic " + new Buffer(spaceID + ":" + token).toString("base64")
 }
 

@@ -10,9 +10,6 @@ LABEL "com.github.actions.description"="Validate the code formatting with pretti
 LABEL "com.github.actions.icon"="align-left"
 LABEL "com.github.actions.color"="yellow"
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
 RUN npm install --global prettier
 
 ADD entrypoint.sh /entrypoint.sh

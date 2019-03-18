@@ -88,12 +88,13 @@ Lingo.prototype.fetchSection = function(id, version, page = 1, limit = 50) {
 };
 
 /**
- * Fetch a section and optionally page through items with it
- * @param {uuid} id the section uuid
+ * Fetch all items that fall under a given heading in a section
+ * @param {uuid} sectionId the section uuid the heading is in
+ * @param {uuid|string} headingId the uuid or string name of the the heading
  * @param {integer} version the version number of the section to fetch
- * @param {integer} limit The max number of items to fetch
- * @param {integer} page the page of items
  * @returns {Promise} Success the section and the items matching the page/limit
+ *
+ * Note: If using the heading string, the first heading with that string will be used. UUID is recommended.
  */
 Lingo.prototype.fetchAssetsForHeading = function(
   sectionId,

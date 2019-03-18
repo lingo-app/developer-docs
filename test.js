@@ -11,7 +11,7 @@ assert(validConfig, "missing config attributes requires to run tests");
 it("Should fail to authenticate with invalid space", () => {
   lingo.setup(0, config.apiToken);
   return lingo.fetchKits().catch(err => {
-    assert(err.code == 401);
+    assert(err.code === 401);
     return Promise.resolve();
   });
 });
@@ -19,7 +19,7 @@ it("Should fail to authenticate with invalid space", () => {
 it("Should fail to authenticate with invalid api token", () => {
   lingo.setup(config.spaceID, "invalid-api-key");
   return lingo.fetchKits().catch(err => {
-    assert(err.code == 401);
+    assert(err.code === 401);
     return Promise.resolve();
   });
 });
@@ -54,7 +54,7 @@ it("Should fetch kit outline", () => {
 it("Should fetch section and items", () => {
   setup();
   return lingo.fetchSection(config.sectionID, 0).then(section => {
-    assert(section.uuid == config.sectionID, "expected sections");
+    assert(section.uuid === config.sectionID, "expected sections");
     assert(section.items.length > 0, "expected items");
   });
 });
@@ -65,7 +65,7 @@ it("Should fetch search results", () => {
     .searchAssetsInKit(config.kitID, 0, (query = "logo"))
     .then(results => {
       assert(results, "expected sections");
-      assert(results.query == "logo", "expected query to match");
+      assert(results.query === "logo", "expected query to match");
       assert(results.sections, "expected results");
     });
 });
@@ -82,7 +82,7 @@ it("Should fetch assets under header by id", () => {
   return lingo
     .fetchAssetsForHeading(config.sectionID, config.headingID, 0)
     .then(result => {
-      assert(result.length == 2, "Unexpected item count under heading");
+      assert(result.length === 2, "Unexpected item count under heading");
     });
 });
 
@@ -91,7 +91,7 @@ it("Should fetch assets under header by name", () => {
   return lingo
     .fetchAssetsForHeading(config.sectionID, config.headingName, 0)
     .then(result => {
-      assert(result.length == 2, "Unexpected item count under heading");
+      assert(result.length === 2, "Unexpected item count under heading");
       return result;
     });
 });

@@ -76,7 +76,7 @@ Lingo.prototype.fetchKitOutline = function(id, version) {
  * @param {integer} version the version number of the section to fetch
  * @param {integer} limit The max number of items to fetch
  * @param {integer} page the page of items
- * @returns {Promise} Success the section and the items matching the page/limit
+ * @returns {Promise} A promise resolving the section and the items matching the page/limit
  */
 Lingo.prototype.fetchSection = function(id, version, page = 1, limit = 50) {
   let path = `/sections/${id}`;
@@ -92,7 +92,7 @@ Lingo.prototype.fetchSection = function(id, version, page = 1, limit = 50) {
  * @param {uuid} sectionId the section uuid the heading is in
  * @param {uuid|string} headingId the uuid or string name of the the heading
  * @param {integer} version the version number of the section to fetch
- * @returns {Promise} Success the section and the items matching the page/limit
+ * @returns {Promise} A promise resolving an array of items that fall under the desired heading. Can be empty.
  *
  * Note: If using the heading string, the first heading with that string will be used. UUID is recommended.
  */
@@ -108,8 +108,8 @@ Lingo.prototype.fetchAssetsForHeading = function(
 
     function isMatch(item) {
       return (
-        item.type == "heading" &&
-        (item.data.content == headingId || item.uuid == headingId)
+        item.type === "heading" &&
+        (item.data.content === headingId || item.uuid === headingId)
       );
     }
     const self = this;
@@ -194,8 +194,8 @@ Lingo.prototype.downloadAsset = function(uuid, type = null) {
 
 Lingo.prototype._requestParams = function(method, path, more) {
   let req = {
-    // uri: "https://api.lingoapp.com/alpha" + path,
-    uri: "https://api-test.lingoapp.com/alpha" + path,
+    uri: "https://api.lingoapp.com/alpha" + path,
+    // uri: "https://api-test.lingoapp.com/alpha" + path,
     method: method,
     json: true,
     headers: {},

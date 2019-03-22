@@ -7,8 +7,7 @@ section: Content
 ## Get all Kits
 
 ```js
-lingo
-  .fetchKits().then(kits => {
+lingo.fetchKits().then(kits => {
 
   })
   .catch(err => {

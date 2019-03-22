@@ -1,5 +1,5 @@
 ---
-title: Lingo Developer
+title: Lingo API Docs
 permalink: /
 ---
 

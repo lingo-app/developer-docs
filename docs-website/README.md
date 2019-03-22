@@ -1,6 +1,6 @@
 # developer.lingoapp.com
 
-This repository powers the development site for [Lingo](http://lingoapp.com), that lives at [developer.lingoapp.com](http://developer.lingoapp.com).
+This directory powers the development site for [Lingo](http://lingoapp.com), that lives at [developer.lingoapp.com](http://developer.lingoapp.com).
 
 ## Contribute!
 
@@ -10,23 +10,29 @@ We use [Jekyll](http://jekyllrb.com) as our content backend, so make sure to rea
 
 ## Setup
 
-If you want to get the site working locally, you'll need to have [node](https://nodejs.org/en/) and [bundler](http://bundler.io) installed. On OS X you'll also need to have Xcode's command line tools installed (`xcode-select --install`).
+To build the site you will need:
 
-Once you have them, run this:
+- [Node](https://nodejs.org/en/)
+- Ruby
+- [Bundler](http://bundler.io)
 
-```
-./run
-```
+Due to some issues with newer versions of macOS you may need to install a new version of Ruby, more details on that in this [jekyll guide](https://jekyllrb.com/docs/installation/macos/#set-up-ruby). Without it you will get a permission error when trying to install bundler.
 
-in the project root to start the server. The `run` script will take care of installing all the needed dependencies if they’re not installed, so it may take a while if it’s the first time you’re running it.
-
-Note: you may find issues with nokogiri when running `run`. If that's the case, try the following:
+After that is setup run:
 
 ```
-  bundle config build.nokogiri --use-system-libraries --with-xml2-include=/usr/include/libxml2/
+gem install bundler jekyll
 ```
 
-If that doesn't work, check the troubleshooting tips on [Nokogiri's page](http://www.nokogiri.org/tutorials/installing_nokogiri.html#mac_os_x)
+Finally, to build and view run:
+
+```
+npm run docs:start
+```
+
+## Deploying
+
+The docs are automatically deployed by GitHub actions when merging into Master.
 
 ## Generated Sections
 

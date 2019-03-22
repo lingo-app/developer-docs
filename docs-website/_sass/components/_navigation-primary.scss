@@ -15,6 +15,7 @@
   margin: 0;
   height: 3.125rem; /*50px*/
   display: inline-block;
+  font-size: 2.75em !important;
 }
 
 [role="banner"] {
@@ -37,6 +38,7 @@
 @include tablet-and-above {
   .main-nav {
     width: 100%;
+    padding: 0 2rem;
     padding-top: 0.4375rem; /*7px*/
     padding-bottom: 0.4375rem; /*7px*/
   }
@@ -75,6 +77,7 @@
     will-change: transform; //Perf!
     width: 100%;
     z-index: 99;
+    padding: 0 1rem;
     margin-top: -3.5rem; //56px
     padding-top: 0.1875rem; //3px
     padding-bottom: 0.1875rem; //3px
@@ -85,6 +88,10 @@
     flex-wrap: wrap; //as the sections menu will fall into a new line
     justify-content: space-between;
     align-items: center;
+  }
+
+  .main-nav h1 {
+    font-size: 3.5em !important;
   }
 
   .main-nav ul {

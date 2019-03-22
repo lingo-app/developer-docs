@@ -8,3 +8,11 @@ coverage
 
 # mac
 .DS_Store
+
+# docs
+_vendor
+_site
+.sass-cache
+_external
+.jekyll-metadata
+.bundle

@@ -92,26 +92,27 @@ body {
   & > .search {
     position: relative;
     background: $background-light-alternate;
+    margin: 8px;
+    border-radius: 2px;
 
     input {
-      border-width: 0 0 1px 0;
-      border-bottom: $border;
-      padding: 6px 0 6px 20px;
+      padding: 6px 0 6px 32px;
       box-sizing: border-box;
-      margin: 6px 15px;
-      margin-bottom: 6px !important;
+      // margin: 3px 10px;
+      // margin-bottom: 6px !important;
       width: $nav-width - 30;
       outline: none;
+      border: none;
       color: $text-dark;
       border-radius: 0; /* ios has a default border radius */
       box-shadow: none;
-      background: $background-light-alternate;
+      background: none;
     }
 
     &:before {
       position: absolute;
-      top: 11px;
-      left: $nav-padding;
+      top: 6px;
+      left: 11px;
       color: $text-medium;
       transition: color 0.2s $ease-in-out-quad;
       @extend %icon-search;

@@ -19,11 +19,6 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-:root .background-dark {
-  background-color: $background-dark;
-  color: $text-light-low;
-}
-
 @include tablet-and-below {
   .display-1,
   .masthead h1 {
@@ -72,9 +67,7 @@ html {
   }
 
   h6,
-  .h6,
-  .heading-main-title,
-  .heading-caption {
+  .h6 {
     display: block;
     font-size: 0.75rem; /*12px*/
     line-height: 1.23125rem; /*19.7px*/
@@ -137,9 +130,7 @@ html {
   }
 
   h6,
-  .h6,
-  .heading-main-title,
-  .heading-caption {
+  .h6 {
     display: block;
     font-size: 0.75rem; /*12px*/
     line-height: 1.25rem; /*20px*/
@@ -209,35 +200,8 @@ th,
   color: $text-dark;
 }
 
-.background-dark display-1,
-.background-dark h1,
-.background-dark .h1,
-.background-dark h2,
-.background-dark .h2,
-.background-dark h3,
-.background-dark .h3,
-.background-dark h4,
-.background-dark .h4,
-.background-dark h5,
-.background-dark .h5,
-.background-dark th,
-.background-dark .card-title {
-  color: $text-light-high;
-}
-
 .content h1:first-child {
   margin-top: 0;
-}
-
-.heading-caption {
-  margin-top: -1.25rem;
-  position: relative;
-  z-index: 2;
-  color: $text-dark;
-}
-
-.background-dark .heading-caption {
-  color: $text-light-ultra-low;
 }
 
 display-1 a,
@@ -258,27 +222,10 @@ th a,
   color: inherit;
 }
 
-.heading-main-title {
-  display: block;
-  margin-top: 0;
-  padding-bottom: 1rem;
-  color: $text-dark;
-}
-
-.background-dark .heading-main-title {
-  color: $text-light-ultra-low;
-}
-
 h1:not([class]) + p,
 .lead,
 .lead-text {
   color: $text-dark;
-}
-
-.background-dark h1:not([class]) + p,
-.background-dark .lead,
-.background-dark .lead-text {
-  color: $text-light;
 }
 
 p,
@@ -312,10 +259,6 @@ ul {
 strong {
   font-weight: $font-semibold;
   color: $text-dark;
-}
-
-.background-dark strong {
-  color: $text-light-high;
 }
 
 .display-1 strong,
@@ -353,21 +296,6 @@ th em {
   background: $color-primary-8;
 }
 
-.background-dark .display-1 em,
-.background-dark h1 em,
-.background-dark .h1 em,
-.background-dark h2 em,
-.background-dark .h2 em,
-.background-dark h3 em,
-.background-dark .h3 em,
-.background-dark h4 em,
-.background-dark .h4 em,
-.background-dark h5 em,
-.background-dark .h5 em,
-.background-dark th em {
-  background: $color-primary6;
-}
-
 pre code,
 article blockquote,
 .note {
@@ -379,10 +307,6 @@ article blockquote,
 blockquote {
   color: $text-dark;
   position: relative;
-}
-
-.background-dark blockquote {
-  color: $text-light-low;
 }
 
 article blockquote,
@@ -458,16 +382,6 @@ kbd {
   color: $text-dark;
 }
 
-.background-dark code {
-  background-color: $color-primary6;
-  color: $color-primary-8;
-}
-
-.background-dark kbd {
-  background-color: $sk-tungsten6;
-  color: $sk-tungsten-8;
-}
-
 small,
 .small {
   display: block;
@@ -477,19 +391,9 @@ small,
   font-weight: $font-regular;
 }
 
-.background-dark small,
-.background-dark .small {
-  color: $text-light-low;
-}
-
 small strong,
 .small strong {
   color: $text-dark;
-}
-
-.background-dark small strong,
-.background-dark .small strong {
-  color: $text-light-low;
 }
 
 .note .h5 {

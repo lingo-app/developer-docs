@@ -3,16 +3,8 @@ body > section + footer {
   background-color: $background-light;
 }
 
-.sections-inverted > section + footer {
-  background-color: $background-light-dark;
-}
-
 body > section:nth-of-type(even):last-of-type + footer {
   background-color: $background-light-dark;
-}
-
-.sections-inverted > section:nth-of-type(even):last-of-type + footer {
-  background-color: $background-light;
 }
 
 .main-footer small {

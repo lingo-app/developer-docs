@@ -96,34 +96,3 @@ section .section-header {
 body > section:nth-child(odd) .footer-title > span {
   background-color: $background-light-dark;
 }
-
-/*Masthead styles for product sections*/
-body .masthead {
-  .hero.hero {
-    display: inline-block;
-    margin: 5.625rem -90rem 0; /*90px top -1440px left*/
-  }
-}
-
-.masthead.background-dark {
-  background-image: url(images/background-main.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.masthead.background-dark::before {
-  content: "";
-  height: 3.5rem;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(
-    180deg,
-    $background-light,
-    rgba($background-dark, 0)
-  );
-  pointer-events: none;
-  z-index: 10;
-}

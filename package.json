@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "test": "mocha",
-    "docs:start": "cd docs-website && ./run",
+    "docs": "cd docs-website && ./run",
     "docs:build": "cd docs-website && ./build",
     "prettier": "prettier --check \"*.js\"",
     "prettify": "prettier --write \"*.js\""

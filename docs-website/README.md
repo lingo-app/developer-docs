@@ -24,10 +24,10 @@ After that is setup run:
 gem install bundler jekyll
 ```
 
-Finally, to build and view run:
+Finally, to build and view, run:
 
 ```
-npm run docs:start
+npm run docs
 ```
 
 ## Deploying

@@ -2,12 +2,20 @@
 title: Kits
 order: 201
 section: Content
+
+spaceID: 123
+apiToken: wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE
+kitID: 3BD9CDAF-14DF-495A-AA2F-4993092D62EE
+kitName: Brand Kit
+sectionID: B1F7A3DD-4E6E-4799-8673-4F857ECC388E
+sectionName: Brand
+headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ---
 
 ## Get all Kits
 
 ```shell
-curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp.com/alpha/kits/'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/alpha/kits/'
 ```
 ```js
 // Response
@@ -15,15 +23,15 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
   "result": {
     "success": true
     "kit": [{
-      "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
+      "kit_uuid": "{{ page.kitID }}",
       "space_id": 5,
-      "name": "Brand Kit",
+      "name": "{{ page.kitName }}",
       "status": "active",
       "use_version": 0,
       "date_added": "2017-03-22 05:27:20.152243+0000",
       "date_updated": "2018-04-12 01:19:33.946433+0000",
       "images": {
-        "cover": "https://lingo-test.s3.amazonaws.com:443/kits/5/3BD9CDAF-14DF-495A-AA2F-4993092D62EE/cover_1523495973.png"
+        "cover": "https://lingo-test.s3.amazonaws.com:443/kits/5/{{ page.kitID }}/cover_1523495973.png"
       }
     },
     { ... }]
@@ -40,7 +48,7 @@ Returns a list of all kits in the space
 ## Kit Versions
 
 ```shell
-curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp.com/alpha/kits/3BD9CDAF-14DF-495A-AA2F-4993092D62EE?include=use_versions'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/kits/{{ page.kitID }}?include=use_versions'
 ```
 ```js
 // Response
@@ -48,16 +56,16 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
   "result": {
     "success": true
     "kit": {
-      "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
+      "kit_uuid": "{{ page.kitID }}",
       "space_id": 5235,
-      "name": "Brand Kit",
+      "name": "{{ page.kitName }}",
       "status": "active",
       "use_version": 0,
       "date_added": "2017-03-22 05:27:20.152243+0000",
       "date_updated": "2018-04-12 01:19:33.946433+0000",
       "versions": [
         {
-          "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
+          "kit_uuid": "{{ page.kitID }}",
           "status": "active",
           "version": 0,
           "version_identifier": "0.0",
@@ -96,7 +104,7 @@ Returns a single kit and its versions
 ## Kit Outline
 
 ```shell
-curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp.com/alpha/kits/3BD9CDAF-14DF-495A-AA2F-4993092D62EE/outline?v=0'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/kits/{{ page.kitID }}/outline?v=0'
 ```
 ```js
 // Response
@@ -104,7 +112,7 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
   "result": {
     "success": true
     "kit_version": {
-      "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
+      "kit_uuid": "{{ page.kitID }}",
       "status": "active",
       "version": 0,
       "version_identifier": "0.0",
@@ -117,13 +125,13 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
         "sections": 2
       }
       "sections": [{
-          "name": "Brand",
-          "uuid": "B1F7A3DD-4E6E-4799-8673-4F857ECC388E",
+          "name": "{{ page.sectionName }}",
+          "uuid": "{{ page.sectionID }}",
           "version": 0
           "display_order": 0,
           "headers": [
             {
-              "uuid": "D86B229B-0171-4EA3-893D-456760D3E8EF",
+              "uuid": "{{ page.headerID }}",
               "display_order": -13,
               "name": "Logo",
               "version": 0

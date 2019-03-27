@@ -2,20 +2,27 @@
 title: Sections
 order: 203
 section: Content
+
+spaceID: 123
+apiToken: wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE
+kitID: 3BD9CDAF-14DF-495A-AA2F-4993092D62EE
+sectionID: B1F7A3DD-4E6E-4799-8673-4F857ECC388E
+assetID: 9CD0AFF5-B050-4B97-8E65-185F969686D5
+headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ---
 
 ```shell
-curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp.com/alpha/sections/B1F7A3DD-4E6E-4799-8673-4F857ECC388E?v=0&page=1&limit=50'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/sections/{{ page.sectionID }}?v=0&page=1&limit=50'
 
 # Response
 {
   "success": true,
   "result": {
     "section": {
-      "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
+      "kit_uuid": "{{ page.kitID }}",
       "name": "Brand",
       "status": "active",
-      "uuid": "B1F7A3DD-4E6E-4799-8673-4F857ECC388E",
+      "uuid": "{{ page.sectionID }}",
       "version": 0
       "counts": {
         "assets": 62,
@@ -26,9 +33,9 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
       "date_updated": "2017-03-25 19:52:57.525252+0000",
       "display_order": 0,
       "items": [{
-          "uuid": "D86B229B-0171-4EA3-893D-456760D3E8EF",
-          "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
-          "section_uuid": "B1F7A3DD-4E6E-4799-8673-4F857ECC388E",
+          "uuid": "{{ page.headerID }}",
+          "kit_uuid": "{{ page.kitID }}",
+          "section_uuid": "{{ page.sectionID }}",
           "space_id": 5,
           "asset_uuid": null,
           "data": {
@@ -44,9 +51,9 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
       },
       {
           "uuid": "185DF077-1EC4-48F2-BCE0-62ED41B53D1E",
-          "asset_uuid": "9CD0AFF5-B050-4B97-8E65-185F969686D5",
-          "kit_uuid": "3BD9CDAF-14DF-495A-AA2F-4993092D62EE",
-          "section_uuid": "B1F7A3DD-4E6E-4799-8673-4F857ECC388E",
+          "asset_uuid": "{{ page.assetID }}",
+          "kit_uuid": "{{ page.kitID }}",
+          "section_uuid": "{{ page.sectionID }}",
           "space_id": 5,
           "data": {
             "display_size": "0"
@@ -60,8 +67,7 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
           "asset": {
             "type": "SVG",
             "uploader_id": 4,
-            "uuid": "9CD0AFF5-B050-4B97-8E65-185F969686D5"
-            "category": "vector",
+            "uuid": "{{ page.assetID }}"
             "colors": [],
             "date_added": "2018-06-12 18:28:52.124741+0000",
             "date_updated": "2018-11-09 20:17:33.254285+0000",
@@ -75,7 +81,7 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
             "notes": "",
             "size": 9361,
             "space_id": 5,
-            "permalink": "https://api-test.lingoapp.com/v4/assets/9CD0AFF5-B050-4B97-8E65-185F969686D5/download",
+            "permalink": "https://api-test.lingoapp.com/v4/assets/{{ page.assetID }}/download",
 
             "thumbnail_placeholders": {
                 "292": "https://lingo-test.s3.amazonaws.com/thumbnails/placeholder/svg/292x292.png",
@@ -83,9 +89,9 @@ curl -XGET 'https://123:wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE@api.lingoapp
                 "1232": "https://lingo-test.s3.amazonaws.com/thumbnails/placeholder/svg/1232x1232.png"
             },
             "thumbnails": {
-                "292": "https://api-test.lingoapp.com/v4/assets/9CD0AFF5-B050-4B97-8E65-185F969686D5/preview?size=292",
-                "480": "https://api-test.lingoapp.com/v4/assets/9CD0AFF5-B050-4B97-8E65-185F969686D5/preview?size=480",
-                "1232": "https://api-test.lingoapp.com/v4/assets/9CD0AFF5-B050-4B97-8E65-185F969686D5/preview?size=1232"
+                "292": "https://api-test.lingoapp.com/v4/assets/{{ page.assetID }}/preview?size=292",
+                "480": "https://api-test.lingoapp.com/v4/assets/{{ page.assetID }}/preview?size=480",
+                "1232": "https://api-test.lingoapp.com/v4/assets/{{ page.assetID }}/preview?size=1232"
             }
           }
         }

@@ -2,6 +2,8 @@
 title: Kits
 order: 201
 section: Content
+
+kitID: 3BD9CDAF-14DF-495A-AA2F-4993092D62EE
 ---
 
 ## Get all Kits
@@ -20,7 +22,7 @@ Returns a list of all kits in the space
 ## Kit Versions
 
 ```js
-lingo.fetchKit('3BD9CDAF-14DF-495A-AA2F-4993092D62EE', 'versions').then(kits => {
+lingo.fetchKit('{{ page.kitID }}', 'versions').then(kits => {
 
 }).catch(err => {
 
@@ -45,7 +47,7 @@ Returns a single kit and its versions
 
 ```js
 
-lingo.fetchKit('3BD9CDAF-14DF-495A-AA2F-4993092D62EE', 'versions').then(kits => {
+lingo.fetchKit('{{ page.kitID }}', 'versions').then(kits => {
 
 }).catch(err => {
 

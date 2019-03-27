@@ -2,10 +2,14 @@
 title: Sections
 order: 202
 section: Content
+
+kitID: 3BD9CDAF-14DF-495A-AA2F-4993092D62EE
+sectionID: B1F7A3DD-4E6E-4799-8673-4F857ECC388E
+headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ---
 
 ```js
-lingo.fetchSection('B1F7A3DD-4E6E-4799-8673-4F857ECC388E', 0).then(section => {
+lingo.fetchSection('{{ page.sectionD }}', 0).then(section => {
 
 }).catch(err => {
 
@@ -25,7 +29,7 @@ Retrieve the content within each section, paging through items as needed.
 ## Heading Contents
 
 ```js
-lingo.fetchAssetsForHeading('B1F7A3DD-4E6E-4799-8673-4F857ECC388E', 'D86B229B-0171-4EA3-893D-456760D3E8EF').then(items => {
+lingo.fetchAssetsForHeading('{{ page.sectionD }}', '{{ page.headerID }}').then(items => {
 
 }).catch(err => {
 

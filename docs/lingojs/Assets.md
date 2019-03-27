@@ -2,12 +2,14 @@
 title: Assets
 order: 203
 section: Content
+
+assetID: 9CD0AFF5-B050-4B97-8E65-185F969686D5
 ---
 
 ## Download
 
 ```js
-lingo.downloadAsset('9CD0AFF5-B050-4B97-8E65-185F969686D5', 'PNG').then(download => {
+lingo.downloadAsset('{{ page.assetID }}', 'PNG').then(download => {
 
 }).catch(err => {
 

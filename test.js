@@ -10,18 +10,28 @@ assert(validConfig, "missing config attributes requires to run tests");
 
 it("Should fail to authenticate with invalid space", () => {
   lingo.setup(0, config.apiToken);
-  return lingo.fetchKits().catch(err => {
-    assert(err.code === 401);
-    return Promise.resolve();
-  });
+  return lingo
+    .fetchKits()
+    .then(res => {
+      asset(false, "Request unexpectedly succeeded");
+    })
+    .catch(err => {
+      assert(err.code === 401);
+      return Promise.resolve();
+    });
 });
 
 it("Should fail to authenticate with invalid api token", () => {
   lingo.setup(config.spaceID, "invalid-api-key");
-  return lingo.fetchKits().catch(err => {
-    assert(err.code === 401);
-    return Promise.resolve();
-  });
+  return lingo
+    .fetchKits()
+    .then(res => {
+      asset(false, "Request unexpectedly succeeded");
+    })
+    .catch(err => {
+      assert(err.code === 401);
+      return Promise.resolve();
+    });
 });
 
 function setup() {
@@ -30,7 +40,6 @@ function setup() {
 
 it("Should fetch kits", () => {
   setup();
-  lingo.setup(config.spaceID, config.apiToken);
   return lingo.fetchKits().then(res => {
     assert(res.length, "expected kits");
     assert(res[0].kit_uuid, "expected the kit to have a uuid");
@@ -38,6 +47,19 @@ it("Should fetch kits", () => {
 });
 
 it("Should fetch kit with versions", () => {
+  setup();
+  return lingo
+    .fetchKit("invalid-kit-uuid")
+    .then(res => {
+      asset(false, "Request unexpectedly succeeded");
+    })
+    .catch(err => {
+      assert(err.code === 1100, `Expected error code 1100, got ${err.code}`);
+      return Promise.resolve();
+    });
+});
+
+it("Should fail to find missing kit", () => {
   setup();
   return lingo.fetchKit(config.kitID).then(kit => {
     assert(kit.versions.length > 0, "expected versions");
@@ -67,6 +89,19 @@ it("Should fetch search results", () => {
       assert(results, "expected sections");
       assert(results.query === "logo", "expected query to match");
       assert(results.sections, "expected results");
+    });
+});
+
+it("Should fail to download invalid asset", () => {
+  setup();
+  return lingo
+    .downloadAsset("invalid-asset-uuid")
+    .then(res => {
+      asset(false, "Request unexpectedly succeeded");
+    })
+    .catch(err => {
+      assert(err.code === 3100, `Expected error code 1100, got ${err.code}`);
+      return Promise.resolve();
     });
 });
 

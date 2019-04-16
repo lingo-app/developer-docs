@@ -178,7 +178,8 @@ Lingo.prototype.downloadAsset = function(uuid, type = null) {
         contentType = response.caseless.get("Content-Type");
         if (contentType.indexOf("json") >= 0) {
           try {
-            resolve(parseJSONResponse(body));
+            const json = JSON.parse(body);
+            resolve(parseJSONResponse(json));
           } catch (err) {
             reject(err);
           }

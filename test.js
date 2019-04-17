@@ -13,7 +13,7 @@ it("Should fail to authenticate with invalid space", () => {
   return lingo
     .fetchKits()
     .then(res => {
-      asset(false, "Request unexpectedly succeeded");
+      assert(false, "Request unexpectedly succeeded");
     })
     .catch(err => {
       assert(err.code === 401);
@@ -26,7 +26,7 @@ it("Should fail to authenticate with invalid api token", () => {
   return lingo
     .fetchKits()
     .then(res => {
-      asset(false, "Request unexpectedly succeeded");
+      assert(false, "Request unexpectedly succeeded");
     })
     .catch(err => {
       assert(err.code === 401);
@@ -51,7 +51,7 @@ it("Should fetch kit with versions", () => {
   return lingo
     .fetchKit("invalid-kit-uuid")
     .then(res => {
-      asset(false, "Request unexpectedly succeeded");
+      assert(false, "Request unexpectedly succeeded");
     })
     .catch(err => {
       assert(err.code === 1100, `Expected error code 1100, got ${err.code}`);
@@ -97,10 +97,10 @@ it("Should fail to download invalid asset", () => {
   return lingo
     .downloadAsset("invalid-asset-uuid")
     .then(res => {
-      asset(false, "Request unexpectedly succeeded");
+      assert(false, "Request unexpectedly succeeded");
     })
     .catch(err => {
-      assert(err.code === 3100, `Expected error code 1100, got ${err.code}`);
+      assert(err.code === 3100, `Expected error code 3100, got ${err.code}`);
       return Promise.resolve();
     });
 });

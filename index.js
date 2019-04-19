@@ -1,13 +1,10 @@
+const LingoError = require("./lingoError");
 const request = require("request");
 
 const Lingo = function() {};
 
-class LingoError extends Error {
-  constructor(json) {
-    super(json.message || "An unexpected error occured");
-    this.code = json.code || 1;
-  }
-}
+Lingo.prototype.Error = LingoError;
+
 function parseJSONResponse(body) {
   if (body.success === true) {
     return body.result;
@@ -16,7 +13,7 @@ function parseJSONResponse(body) {
   } else {
     console.log("Response is missing success flag " + body);
     throw new LingoError({
-      code: 1,
+      code: LingoError.Code.unknown,
       message: "Unexpected server response"
     });
   }
@@ -195,8 +192,8 @@ Lingo.prototype.downloadAsset = function(uuid, type = null) {
 
 Lingo.prototype._requestParams = function(method, path, more) {
   let req = {
-    uri: "https://api.lingoapp.com/alpha" + path,
-    // uri: "https://api-test.lingoapp.com/alpha" + path,
+    // uri: "https://api.lingoapp.com/alpha" + path,
+    uri: "https://api-test.lingoapp.com/alpha" + path,
     method: method,
     json: true,
     headers: {},

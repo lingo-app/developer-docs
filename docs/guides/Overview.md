@@ -2,7 +2,6 @@
 title: Overview
 summary: Basic concepts for API users.
 permalink: /guides/
-redirect_from: /introduction/
 order: 100
 ---
 
@@ -12,7 +11,13 @@ We hope this will empower you to use Lingo in new and exciting ways. We encourag
 
 ## Getting access
 
-While the API is in beta, access is granted upon request. Please reach out if you are interested in using the API.
+API Access is available for all Spaces on the Plus or enterpise plans.
+
+## Creating a token
+
+Access to the API is token based. Admins of a space can create a token on the settings page for the desired space.
+
+Deleting a token is permanent. Once deleted any code using that token will fail to authenticate.
 
 ## Security Notes
 

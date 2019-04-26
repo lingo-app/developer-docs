@@ -5,6 +5,8 @@ const Lingo = function() {};
 
 Lingo.prototype.Error = LingoError;
 
+Lingo.prototype.baseURL = "https://api.lingoapp.com/alpha";
+
 function parseJSONResponse(body) {
   if (body.success === true) {
     return body.result;
@@ -192,8 +194,7 @@ Lingo.prototype.downloadAsset = function(uuid, type = null) {
 
 Lingo.prototype._requestParams = function(method, path, more) {
   let req = {
-    uri: "https://api.lingoapp.com/alpha" + path,
-    // uri: "https://api-test.lingoapp.com/alpha" + path,
+    uri: this.baseURL + path,
     method: method,
     json: true,
     headers: {},

@@ -1,7 +1,7 @@
 FROM ruby:2.6.1
 
 LABEL "version"="1.0.0"
-LABEL "repository"="https://github.com/thenounproject/lingo-api"
+LABEL "repository"="https://github.com/thenounproject/lingo"
 LABEL "homepage"="https://github.com/thenounproject/"
 LABEL "maintainer"="Noun Project <developers@thenounproject.com>"
 

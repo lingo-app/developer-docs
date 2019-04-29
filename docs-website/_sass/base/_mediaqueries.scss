@@ -1,7 +1,7 @@
 /* SCSS Variables */
 $breakpoint_phone_width: 640px;
 $breakpoint_tablet_width: 768px;
-$breakpoint_web_height:   900px;
+$breakpoint_web_height: 900px;
 
 $phone-width: 640px;
 $tablet-width: 768px;
@@ -61,8 +61,7 @@ p {
 }
 
 @mixin retina {
-  @media
-    only screen and (-webkit-min-device-pixel-ratio: 2),
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
     only screen and (min--moz-device-pixel-ratio: 2),
     only screen and (-o-min-device-pixel-ratio: 2/1),
     only screen and (min-device-pixel-ratio: 2),

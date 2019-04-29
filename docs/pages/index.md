@@ -9,8 +9,13 @@ This is just the beginning. Our API currently provides read only access to the c
 
 We look forward to the expanding on these capbilities to allow you to build your dream workflow easier than ever before.
 
+### Before you begin
+
+Please review the [API guidelines and restrictions](/guides/). You will also need to agree to our Terms of Use when creating your API token.
+
 ### Where to start
 
+- Get started with the [guides](/guides) to get setup
 - Using Javascript? Take a look at [LingoJS](/lingojs)
 - Using another language? Check out our [Rest API](/rest)
 - Not sure what you can do? See some example [Use Cases](/guides/use-cases)

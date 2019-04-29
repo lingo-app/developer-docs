@@ -65,16 +65,6 @@ figcaption {
   direction: ltr;
 }
 
-/*Selection color for pages*/
-*::selection {
-  color: $text-light-high;
-  background: $color-primary2;
-}
-
-*::selection:window-inactive {
-  background: $color-primary4;
-}
-
 /* Avoid the ugly focus ring in form elements in Safari */
 *:focus {
   outline: none;

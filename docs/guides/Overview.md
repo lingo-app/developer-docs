@@ -13,6 +13,8 @@ We hope this will empower you to use Lingo in new and exciting ways. We encourag
 
 API Access is available for all Spaces on the Plus or enterpise plans.
 
+Note: While in beta, API access is only availble by request.
+
 ## Creating a token
 
 Access to the API is token based. Admins of a space can create a token on the settings page for the desired space.

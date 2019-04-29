@@ -1,13 +1,5 @@
 {
-  "name": "lingo-sdk",
-  "description": "Lingo API wrapper",
-  "version": "0.1.1",
-  "homepage": "https://github.com/lingo-app/developer-docs",
-  "author": "Lingo <info@lingoapp.com> (https://www.lingoapp.com/)",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/lingo-app/developer-docs.git"
-  },
+  "name": "lingo-developer-docs",
   "scripts": {
     "docs": "cd docs-website && ./run",
     "docs:build": "cd docs-website && ./build"

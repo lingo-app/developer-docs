@@ -9,9 +9,7 @@ slate: true
 
 It's helpful to get familiar with the data model in Lingo before working with the API.
 
-> Note that the property names may change slightly in different API libraries.
-
-### Index
+**Jump to...**
 
 - [Space](#space)
 - [Kit](#kit)
@@ -23,15 +21,21 @@ It's helpful to get familiar with the data model in Lingo before working with th
 - [Asset](#asset)
 - [Color](#color)
 
+> Note that the property names may change slightly in different API libraries.
+
+---
+
 ## Space
 
 A space represents a collection of people and assets in Lingo. Each API token is created for a particular Space and is limited to accessing content within that Space.
 
-Because API access is restricted to a space, they are never fetched via the API
+Because API access is restricted to a space, they are never returned.
 
 ## Kit
 
-A kit contains a collection of assets which are organized in sections.
+A kit contains a collection of assets which are organized in sections. In Lingo, access controls can be configured at this level, giving members of a space users access to individual kits.
+
+All other objects below are all fetched within a kit.
 
 | Properties                                      |                                                           |
 | ----------------------------------------------- | --------------------------------------------------------- |
@@ -46,7 +50,7 @@ A kit contains a collection of assets which are organized in sections.
 
 Multiple version of a kit can be created.
 
-Every kit always has a "Shared Draft" which is version `0`.
+Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Shared Draft can be updated, all other versions (1+) are immutable snapshots of the kit at the time the version is created.
 
 | Properties                                             |                                                              |
 | ------------------------------------------------------ | ------------------------------------------------------------ |
@@ -60,6 +64,8 @@ Every kit always has a "Shared Draft" which is version `0`.
 ## Kit Outline
 
 A kit outline provides an overview of the contents of kit version. It is a list of sections each of which include headings in that section.
+
+The outline is the only way to fetch the full list of [Sections](#section) in a kit.
 
 | Properties                                                           |                                      |
 | -------------------------------------------------------------------- | ------------------------------------ |
@@ -80,10 +86,11 @@ A kit contains a collection of assets which are organized in sections.
 | counts<span class="arg-type">[string:number]</span>          | Counts of `items`, `assets` in the section.                          |
 | headers<span class="arg-type">[ [Heading](#heading) ]</span> | When fetching an outline, a section will contain a list of headings. |
 
-## Heading
+### Heading
 
-A heading is special type of [item](#item) that can be used to create a sense of hierarchy within Lingo.
-In the outline these items include a subset of the data provided when fetching items directly.
+A heading is special type of [item](#item) that can be used to create a visual hierarchy within Lingo.
+
+Because headings are a type of [Item](#item), they are returned inline when fetching content in a section. In the outline these items include a subset of the data provided when fetching items directly.
 
 | Properties                                        |                                                  |
 | ------------------------------------------------- | ------------------------------------------------ |
@@ -102,6 +109,14 @@ Items can be one of three types:
 - Inline Note
 - Heading
 
+Inline notes and headings represent text and don't have an associated asset. The text content of those items is stored in the `data` property. In Javascript this looks like:
+
+```js
+const item = ... // fetched inline note
+item.type; // inline_note
+const note = item.data.content;
+```
+
 | Properties                                                          |                                                                     |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | uuid<span class="arg-type">string</span>                            | The unique identifier for the item                                  |
@@ -116,7 +131,9 @@ Items can be one of three types:
 
 ## Asset
 
-A kit contains a collection of assets which are organized in sections.
+Assets represent the visual content of Lingo. Typically this is a file but in some cases assets are stored as data (i.e. colors).
+
+Assets themselves have no relationship to a kit. [Item] objects manage that relationship. It may be important to note that a single asset can have multiple items in the same or different kits; In Lingo those we call those `References`.
 
 | Properties                                                |                                                       |
 | --------------------------------------------------------- | ----------------------------------------------------- |

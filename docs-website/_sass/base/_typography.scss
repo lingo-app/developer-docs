@@ -306,7 +306,7 @@ article blockquote,
 blockquote {
   font-size: 1rem; /*17.5px*/
   position: relative;
-  border-radius: 2px;
+  border-radius: $radius-normal;
 }
 
 article blockquote,

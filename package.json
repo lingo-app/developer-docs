@@ -1,7 +1,8 @@
 {
   "name": "lingo-developer-docs",
   "scripts": {
-    "docs": "cd docs-website && ./run",
-    "docs:build": "cd docs-website && ./build"
+    "start": "cd docs-website && ./run",
+    "build": "cd docs-website && ./build",
+    "deploy": "cd docs-website && ./build && aws s3 sync ./_site \"s3://developer.lingoapp.com/\" --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --delete"
   }
 }

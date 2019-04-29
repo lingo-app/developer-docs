@@ -1,7 +1,7 @@
 ---
 title: Glossary
 summary: Get familiar with the lingo of Lingo.
-permalink: /guides/glossary
+permalink: /guides/glossary/
 order: 105
 
 slate: true
@@ -41,7 +41,7 @@ This screenshot shows the kits as they appear in Lingo.
 ![Kits](../images/glossary_kits.png)
 
 | Properties                                      |                                                           |
-| ----------------------------------------------- | --------------------------------------------------------- |
+|-------------------------------------------------|-----------------------------------------------------------|
 | kit_uuid<span class="arg-type">string</span>    | The unique identifier for the kit                         |
 | space_id<span class="arg-type">number</span>    | The id of the space that owns the kit.                    |
 | name<span class="arg-type">string</span>        | The name of the kit.                                      |
@@ -58,7 +58,7 @@ Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Sh
 ![Versions](../images/glossary_versions.png)
 
 | Properties                                             |                                                              |
-| ------------------------------------------------------ | ------------------------------------------------------------ |
+|--------------------------------------------------------|--------------------------------------------------------------|
 | kit_uuid<span class="arg-type">string</span>           | The unique identifier for the kit the version is in          |
 | version<span class="arg-type">number</span>            | The numeric version.                                         |
 | version_identifier<span class="arg-type">string</span> | A string identifier of the version.                          |
@@ -76,7 +76,7 @@ The outline is used by Lingo to populate the kit navigator shown here. Notice be
 ![Outline](../images/glossary_outline.png)
 
 | Properties                                                           |                                      |
-| -------------------------------------------------------------------- | ------------------------------------ |
+|----------------------------------------------------------------------|--------------------------------------|
 | kit_version<span class="arg-type">[Kit Version](#kit-version)</span> | The version the outline represents   |
 | sections<span class="arg-type">[ [Section](#section) ]</span>        | An array of sections in the version. |
 
@@ -85,7 +85,7 @@ The outline is used by Lingo to populate the kit navigator shown here. Notice be
 A kit contains a collection of assets which are organized in sections.
 
 | Properties                                                   |                                                                      |
-| ------------------------------------------------------------ | -------------------------------------------------------------------- |
+|--------------------------------------------------------------|----------------------------------------------------------------------|
 | uuid<span class="arg-type">string</span>                     | The unique identifier for the kit                                    |
 | version<span class="arg-type">number</span>                  | The numeric version the section belongs to.                          |
 | name<span class="arg-type">string</span>                     | The name of the kit.                                                 |
@@ -101,7 +101,7 @@ A heading is special type of [item](#item) that can be used to create a visual h
 Because headings are a type of [Item](#item), they are returned inline when fetching content in a section. In the outline these items include a subset of the data provided when fetching items directly.
 
 | Properties                                        |                                                  |
-| ------------------------------------------------- | ------------------------------------------------ |
+|---------------------------------------------------|--------------------------------------------------|
 | uuid<span class="arg-type">string</span>          | The unique identifier for the heading item       |
 | version<span class="arg-type">number</span>       | The version number of the heading.               |
 | name<span class="arg-type">string</span>          | The text of the heading.                         |
@@ -126,7 +126,7 @@ const note = item.data.content;
 ```
 
 | Properties                                                          |                                                                     |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+|---------------------------------------------------------------------|---------------------------------------------------------------------|
 | uuid<span class="arg-type">string</span>                            | The unique identifier for the item                                  |
 | kit_uuid<span class="arg-type">number</span>                        | The id of the kit the item is in.                                   |
 | section_uuid<span class="arg-type">string</span>                    | the id of the section the item is in.                               |
@@ -144,7 +144,7 @@ Assets represent the visual content of Lingo. Typically this is a file but in so
 Assets themselves have no relationship to a kit. [Item] objects manage that relationship. It may be important to note that a single asset can have multiple items in the same or different kits; In Lingo those we call those `References`.
 
 | Properties                                                |                                                       |
-| --------------------------------------------------------- | ----------------------------------------------------- |
+|-----------------------------------------------------------|-------------------------------------------------------|
 | uuid<span class="arg-type">string</span>                  | The unique identifier for the kit                     |
 | type<span class="arg-type">[AssetType](#assettype)</span> | The id of the space that owns the kit.                |
 | name<span class="arg-type">string</span>                  | The name of the asset.                                |
@@ -162,7 +162,7 @@ Assets themselves have no relationship to a kit. [Item] objects manage that rela
 Color assets contain a list of colors. Colors are stored in HSBA.
 
 | Properties                                     |                                            |
-| ---------------------------------------------- | ------------------------------------------ |
+|------------------------------------------------|--------------------------------------------|
 | name<span class="arg-type">string</span>       | The unique identifier for the kit          |
 | hue<span class="arg-type">number</span>        | The hue value of the color (0-360).        |
 | saturation<span class="arg-type">number</span> | The saturation value of the color (0-100). |
@@ -172,7 +172,7 @@ Color assets contain a list of colors. Colors are stored in HSBA.
 ### AssetType
 
 | File Type                    | Type               |
-| ---------------------------- | ------------------ |
+|------------------------------|--------------------|
 | SVG                          | SVG                |
 | JPG                          | JPG                |
 | PNG                          | PNG                |

@@ -1,7 +1,7 @@
 ---
 title: Restrictions
 summary: Learn what is not allowed.
-permalink: /guides/restrictions
+permalink: /guides/restrictions/
 order: 103
 ---
 

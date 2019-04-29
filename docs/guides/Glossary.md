@@ -9,6 +9,20 @@ slate: true
 
 It's helpful to get familiar with the data model in Lingo before working with the API.
 
+> Note that the property names may change slightly in different API libraries.
+
+### Index
+
+- [Space](#space)
+- [Kit](#kit)
+- [Kit Version](#kit-version)
+- [Kit Outline](#kit-outline)
+- [Section](#section)
+- [Heading](#heading)
+- [Item](#item)
+- [Asset](#asset)
+- [Color](#color)
+
 ## Space
 
 A space represents a collection of people and assets in Lingo. Each API token is created for a particular Space and is limited to accessing content within that Space.
@@ -50,7 +64,7 @@ A kit outline provides an overview of the contents of kit version. It is a list 
 | Properties                                                           |                                      |
 | -------------------------------------------------------------------- | ------------------------------------ |
 | kit_version<span class="arg-type">[Kit Version](#kit-version)</span> | The version the outline represents   |
-| sections<span class="arg-type">[Section]</span>                      | An array of sections in the version. |
+| sections<span class="arg-type">[ [Section](#section) ]</span>        | An array of sections in the version. |
 
 ## Section
 
@@ -63,7 +77,7 @@ A kit contains a collection of assets which are organized in sections.
 | name<span class="arg-type">string</span>                     | The name of the kit.                                                 |
 | display_order<span class="arg-type">number</span>            | A relative order of the section in the version.                      |
 | status<span class="arg-type">string</span>                   | The status of the section (always `active`).                         |
-| counts<span class="arg-type">object</span>                   | Counts of `items`, `assets` in the section.                          |
+| counts<span class="arg-type">[string:number]</span>          | Counts of `items`, `assets` in the section.                          |
 | headers<span class="arg-type">[ [Heading](#heading) ]</span> | When fetching an outline, a section will contain a list of headings. |
 
 ## Heading

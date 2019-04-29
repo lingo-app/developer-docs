@@ -304,8 +304,9 @@ article blockquote,
 }
 
 blockquote {
-  color: $text-dark;
+  font-size: 1rem; /*17.5px*/
   position: relative;
+  border-radius: 2px;
 }
 
 article blockquote,

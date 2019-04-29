@@ -37,6 +37,9 @@ A kit contains a collection of assets which are organized in sections. In Lingo,
 
 All other objects below are all fetched within a kit.
 
+This screenshot shows the kits as they appear in Lingo.
+![Kits](../images/glossary_kits.png)
+
 | Properties                                      |                                                           |
 | ----------------------------------------------- | --------------------------------------------------------- |
 | kit_uuid<span class="arg-type">string</span>    | The unique identifier for the kit                         |
@@ -52,6 +55,8 @@ Multiple version of a kit can be created.
 
 Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Shared Draft can be updated, all other versions (1+) are immutable snapshots of the kit at the time the version is created.
 
+![Versions](../images/glossary_versions.png)
+
 | Properties                                             |                                                              |
 | ------------------------------------------------------ | ------------------------------------------------------------ |
 | kit_uuid<span class="arg-type">string</span>           | The unique identifier for the kit the version is in          |
@@ -66,6 +71,9 @@ Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Sh
 A kit outline provides an overview of the contents of kit version. It is a list of sections each of which include headings in that section.
 
 The outline is the only way to fetch the full list of [Sections](#section) in a kit.
+
+The outline is used by Lingo to populate the kit navigator shown here. Notice below how the Headings in Lingo are displaying inline with other content as well as in the kit navigator under the section.
+![Outline](../images/glossary_outline.png)
 
 | Properties                                                           |                                      |
 | -------------------------------------------------------------------- | ------------------------------------ |

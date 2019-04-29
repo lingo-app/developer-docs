@@ -2,6 +2,8 @@ const lingo = require("./index");
 const assert = require("assert");
 const config = require("./test_config");
 
+lingo.baseURL = "https://api-test.lingoapp.com/alpha";
+
 let validConfig = (config.spaceID,
 config.apiToken,
 config.kitID,

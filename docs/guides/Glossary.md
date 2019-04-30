@@ -7,11 +7,7 @@ order: 105
 slate: true
 ---
 
-It's helpful to get familiar with the data model in Lingo before working with the API.
-
 > Note that the property names may change slightly in different API libraries.
-
----
 
 ## Space
 

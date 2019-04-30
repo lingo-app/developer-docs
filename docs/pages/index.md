@@ -3,11 +3,9 @@ title: Lingo API Docs
 permalink: /
 ---
 
-Lingo provides a number of powerful and easy to use features for managing and distributing a digital asset libary. Our developer resources allow you to build on top of our platform to create the perfect workflow to solve your needs.
+Lingo provides a number of powerful and easy to use features for managing and distributing a digital asset libary. Our developer resources allow you to build on top of that platform to create the perfect workflow to solve your needs.
 
-This is just the beginning. Our API currently provides read only access to the content in your Lingo space opening the door for new validation, processing, and distribution paths.
-
-We look forward to the expanding on these capbilities to allow you to build your dream workflow easier than ever before.
+This is just the beginning. The API currently provides read only access to the content in your Lingo space. We look forward to the expanding on these capbilities to allow you to build your dream workflow easier than ever before.
 
 ### Before you begin
 

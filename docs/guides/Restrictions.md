@@ -25,8 +25,8 @@ The Lingo API is currently in Beta. If granted early access, please try it out b
 
 ## Distribution
 
-- Loading images from client side code such as a web page or app or on a server to then be delivered to your product or service is not allowed.
-- To use content from Lingo in your product or service, you may use the API to fetch the desired content and store it as needed.
+- Loading images from client side code such as a web page or app or on a server to then be delivered to your product or service is **not allowed**.
+- To use content from Lingo in your product or service, you may use the API to fetch the desired content and **store** it as needed.
 - You may not use Lingo APIs for any application that replicates or attempts to replace the essential user experience of the Lingo Mac app or Lingoapp.com
 
 ## Revoking Access

@@ -9,18 +9,6 @@ slate: true
 
 It's helpful to get familiar with the data model in Lingo before working with the API.
 
-**Jump to...**
-
-- [Space](#space)
-- [Kit](#kit)
-- [Kit Version](#kit-version)
-- [Kit Outline](#kit-outline)
-- [Section](#section)
-- [Heading](#heading)
-- [Item](#item)
-- [Asset](#asset)
-- [Color](#color)
-
 > Note that the property names may change slightly in different API libraries.
 
 ---
@@ -38,7 +26,7 @@ A kit contains a collection of assets which are organized in sections. In Lingo,
 All other objects below are all fetched within a kit.
 
 This screenshot shows the kits as they appear in Lingo.
-![Kits](../images/glossary_kits.png)
+![Kits](../../images/glossary_kits.png)
 
 | Properties                                      |                                                           |
 |-------------------------------------------------|-----------------------------------------------------------|
@@ -55,7 +43,7 @@ Multiple version of a kit can be created.
 
 Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Shared Draft can be updated, all other versions (1+) are immutable snapshots of the kit at the time the version is created.
 
-![Versions](../images/glossary_versions.png)
+![Versions](../../images/glossary_versions.png)
 
 | Properties                                             |                                                              |
 |--------------------------------------------------------|--------------------------------------------------------------|
@@ -73,7 +61,7 @@ A kit outline provides an overview of the contents of kit version. It is a list 
 The outline is the only way to fetch the full list of [Sections](#section) in a kit.
 
 The outline is used by Lingo to populate the kit navigator shown here. Notice below how the Headings in Lingo are displaying inline with other content as well as in the kit navigator under the section.
-![Outline](../images/glossary_outline.png)
+![Outline](../../images/glossary_outline.png)
 
 | Properties                                                           |                                      |
 |----------------------------------------------------------------------|--------------------------------------|

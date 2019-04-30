@@ -5,9 +5,9 @@ permalink: /guides/restrictions/
 order: 103
 ---
 
-## While in Beta
-
-The Lingo API is currently in Beta. If granted early access, please try it out but do not use the API for sensitive data or critical workflows as it may change.
+> **While in Beta**
+>
+> The Lingo API is currently in Beta. If granted early access, please try it out but do not use the API for sensitive data or critical workflows as it may change.
 
 ## Terms of Use
 

@@ -18,6 +18,11 @@ body > section:nth-of-type(even):last-of-type + footer {
   color: $text-dark;
 }
 
+.main-footer {
+  padding: 0 2rem;
+  background-color: $background-ultra-light;
+}
+
 @include tablet-and-above {
   .main-footer {
     text-align: right;

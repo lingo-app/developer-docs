@@ -662,6 +662,10 @@ body {
   }
 }
 
+.main-footer.slate {
+  margin-left: $nav-width;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // RESPONSIVE DESIGN
 ////////////////////////////////////////////////////////////////////////////////
@@ -669,6 +673,10 @@ body {
 // There are also a couple styles disperesed
 
 @media (max-width: $tablet-width) {
+  .main-footer.slate {
+    margin-left: 0;
+  }
+
   .toc-wrapper {
     left: -$nav-width;
 

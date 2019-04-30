@@ -1,4 +1,7 @@
-<footer class="main-footer" role="contentinfo">
+<footer
+  class="main-footer {% if include.slate %} slate{% endif %}"
+  role="contentinfo"
+>
   <div class="wrapper">
     <nav>
       <small>&copy; {{ "now" | date: "%Y" }} Lingo™</small>

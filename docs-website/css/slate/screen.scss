@@ -93,7 +93,7 @@ body {
     position: relative;
     background: $background-light-alternate;
     margin: 8px;
-    border-radius: 2px;
+    border-radius: $radius-normal;
 
     input {
       padding: 6px 0 6px 32px;

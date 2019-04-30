@@ -60,16 +60,16 @@ body > section:nth-child(even):last-of-type ~ footer {
   border-collapse: separate;
   border-spacing: 0;
   border-radius: $radius-small;
-  border: 1px solid $border-dark-high;
-  background-color: rgba($action, 0.05);
-  box-shadow: 0 1px 2px $border-dark;
+  border: 0;
+  // background-color: rgba($action, 0.05);
+  box-shadow: none;
   color: $text-dark;
 }
 
-.content > table td,
-.content div:not(.highlight) > table td {
-  padding: 1rem;
-}
+// .content > table td,
+// .content div:not(.highlight) > table td {
+//   padding: 1rem;
+// }
 
 .content > thead td,
 .content div:not(.highlight) thead td {

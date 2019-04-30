@@ -1,6 +1,7 @@
 ---
 layout: base
 ---
+
 <section class="sidebar">
   <div class="wrapper">
     <div class="row">
@@ -17,30 +18,7 @@ layout: base
                 <h2>Getting Started</h2>
                 <ol>
                   {% for guide in guides %}
-                    {% if guide.order < 200 %}
-                      <li><a href="{{guide.url}}" {% if page.url == guide.url %} class="active"{% endif %}>{{guide.title}}</a></li>
-                    {% endif %}
-                  {% endfor %}
-                </ol>
-              </li>
-              <!-- <li>
-                <h2>Advanced</h2>
-                <ol>
-                  {% for guide in guides %}
-                    {% if guide.order >= 200 %}
-                      <li><a href="{{guide.url}}" {% if page.url == guide.url %} class="active"{% endif %}>{{guide.title}}</a></li>
-                    {% endif %}
-                  {% endfor %}
-                </ol>
-              </li> -->
-            {% endif %}
-            {% if page.url contains '/action/' %}
-              <li>
-                <h2><a href="/reference/action/">Actions Index</a></h2>
-                <ol>
-                  {% assign actions = site.actions | sort:"title"%}
-                  {% for action in actions %}
-                  <li><a href="{{action.url}}" {% if page.url == action.url %} class="active"{% endif %}>{{ action.title }}</a></li>
+                      <li id="{{ guide.title }}"><a href="{{guide.url}}" {% if page.url == guide.url %} class="active"{% endif %}>{{guide.title}}</a></li>
                   {% endfor %}
                 </ol>
               </li>
@@ -57,3 +35,35 @@ layout: base
     </div>
   </div>
 </section>
+
+<script>
+  console.log("{{ page.title }}")
+
+  const article = document.getElementsByTagName("article")[0]
+  let headers = []
+  article.querySelectorAll("h3, h2").forEach(v => {
+    headers.push(v)
+  })
+  headers = headers.sort(function(a, b) {
+    return -a.compareDocumentPosition(b)
+  })
+
+  console.log(headers)
+
+  for (let h of headers) {
+    const navItem = document.getElementById("{{ page.title }}");
+    const newNode = document.createElement("li");
+    const link = document.createElement("a")
+    link.href = "#" + h.id
+    link.className = "sidebar-toc-h2"
+    link.innerHTML = h.innerHTML
+    newNode.appendChild(link)
+
+    navItem.parentNode.insertBefore(newNode, navItem.nextSibling)
+  }
+
+
+  // console.log(content.getElementsByTagName("h1"))
+  // const headers = content.querySelectorAll("h1, h2");
+  // console.log(headers)
+</script>

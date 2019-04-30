@@ -3,12 +3,7 @@ workflow "Process" {
   resolves = ["Deploy Docs"]
 }
 
-action "Prettier" {
-  uses = "./.github/actions/prettier"
-}
-
 action "Master" {
-  needs=["Prettier"]
   uses = "actions/bin/filter@master"
   args = "branch master"
 }

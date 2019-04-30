@@ -19,6 +19,13 @@
   margin-bottom: 1rem;
 }
 
+.sidebar .sidebar-toc-h2 {
+  font-weight: normal;
+  // color: $text-medium;
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+
 // External links
 .content a[href^="http://"]:not([href*="lingoapp.com"]):not(.card),
 .content a[href^="https://"]:not([href*="lingoapp.com"]):not(.card) {

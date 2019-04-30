@@ -5,7 +5,8 @@
 pre,
 .highlight .hll,
 .highlight code {
-  background-color: $background-white;
+  background-color: $color-neutral-lighter;
+  border-radius: $radius-normal;
 }
 .highlight .c {
   color: $text-dark;

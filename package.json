@@ -1,17 +1,8 @@
 {
-  "name": "Lingojs",
-  "version": "0.1.0",
+  "name": "lingo-developer-docs",
   "scripts": {
-    "test": "mocha",
-    "docs": "cd docs-website && ./run",
-    "docs:build": "cd docs-website && ./build",
-    "prettier": "prettier --check \"*.js\"",
-    "prettify": "prettier --write \"*.js\""
-  },
-  "dependencies": {
-    "request": "2.88"
-  },
-  "devDependencies": {
-    "mocha": "^5.2.0"
+    "start": "cd docs-website && ./run",
+    "build": "cd docs-website && ./build",
+    "deploy": "cd docs-website && ./build && aws s3 sync ./_site \"s3://developer.lingoapp.com/\" --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --delete"
   }
 }

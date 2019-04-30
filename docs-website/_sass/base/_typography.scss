@@ -253,7 +253,7 @@ ol {
 }
 
 ul {
-  list-style-type: square;
+  list-style-type: disc;
 }
 
 strong {
@@ -304,8 +304,9 @@ article blockquote,
 }
 
 blockquote {
-  color: $text-dark;
+  font-size: 1rem; /*17.5px*/
   position: relative;
+  border-radius: $radius-normal;
 }
 
 article blockquote,

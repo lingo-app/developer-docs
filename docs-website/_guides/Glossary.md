@@ -170,8 +170,8 @@ Color assets contain a list of colors. Colors are stored in HSBA.
 | PowerPoint Template          | POTX               |
 | Word Document                | DOCX               |
 | Word Template                | DOTX               |
-| Ketynote                     | KETNOTE            |
-| Ketnote Theme                | KETNOTE_THEME      |
+| Keynote                      | KEYNOTE            |
+| Keynote Theme                | KEYNOTE_THEME      |
 | Pages Document               | PAGES              |
 | Pages Template               | PAGES_TEMPLATE     |
 | Photoshop Document           | PSD                |

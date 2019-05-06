@@ -10,7 +10,7 @@ apiToken: wEJAz9dTsRG-CaE9W0r2vKOpKKZY-l48D6TOAXzDiJE
 ```shell
 # spaceID="{{ page.spaceID }}"
 # apiToken="{{ page.apiToken }}"
-"https://$spaceID:$apiToken@api.lingoapp.com/alpha/kits"
+"https://$spaceID:$apiToken@api.lingoapp.com/1/kits"
 ```
 
 The API uses basic auth to authenticate access to your space.

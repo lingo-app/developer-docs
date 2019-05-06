@@ -5,15 +5,9 @@ permalink: /guides/
 order: 100
 ---
 
-The Lingo API is currently in Beta.
-
-We hope this will empower you to use Lingo in new and exciting ways. We encourage you to explore any and all possible use cases but please let us know what you are doing. This will help us understand how to push the API forward. That said, do remember this is still in beta.
-
 ## Getting access
 
-API Access is available for all Spaces on the Plus or enterpise plans.
-
-Note: While in beta, API access is only availble by request.
+API Access is available for all Spaces on the Plus or enterpise plans. The option to create an API token will only be displayed for spaces on these plans.
 
 ## Creating a token
 
@@ -23,8 +17,12 @@ Deleting a token is permanent. Once deleted any code using that token will fail 
 
 ## Security Notes
 
-**Protect your API tokens**. At this stage we recommend not using the API in public web pages as the token grants read only access to your entire space. We definitely see the potential here but would advise against it until we add the ability to scope tokens to a particular kit(s) or permissions. This is where sharing your use case is hugely valuable to us.
+**Protect your API tokens**. At this stage we recommend not using the API in public web pages as the token grants read only access to your entire space. We definitely see the potential here but would advise against it until more secutity/access options are available.
 
 ## Get in touch
 
-We use Slack to stay in touch. Please ask for access and we can invite you and your team to join the Slack Workspace.
+We would love to hear what you are doing. Understanding your use case for the API helps us know how we can improve this API.
+
+Email: info@lingoapp.com
+Twitter: [@lingo_app](https://www.twitter.com/lingo_app)
+Slack: Get in touch to request access to our Slack community.

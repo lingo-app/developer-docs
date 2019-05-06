@@ -5,13 +5,9 @@ permalink: /guides/restrictions/
 order: 103
 ---
 
-> **While in Beta**
->
-> The Lingo API is currently in Beta. If granted early access, please try it out but do not use the API for sensitive data or critical workflows as it may change.
-
 ## Terms of Use
 
-- You must agree to Lingo API Terms of Use before using the API. Accepting these terms is require when creating an API token.
+- You must agree to Lingo [API Terms of Use](lingoapp.com/legal/#api-tou) before using the API. Accepting these terms is require when creating an API token.
 
 ## General
 
@@ -25,7 +21,7 @@ order: 103
 
 ## Distribution
 
-- Loading images from client side code such as a web page or app or on a server to then be delivered to your product or service is **not allowed**.
+- Do not load content from client side code such as a web page or app (or on a server to be delivered to your product or service). This API is not intended to serve assets in live products.
 - To use content from Lingo in your product or service, you may use the API to fetch the desired content and **store** it as needed.
 - You may not use Lingo APIs for any application that replicates or attempts to replace the essential user experience of the Lingo Mac app or Lingoapp.com
 

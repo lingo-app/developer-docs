@@ -12,7 +12,7 @@ headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ---
 
 ```shell
-curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/sections/{{ page.sectionID }}?v=0&page=1&limit=50'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/1/sections/{{ page.sectionID }}?v=0&page=1&limit=50'
 
 # Response
 {
@@ -107,9 +107,8 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha
 Retrieve the content within each section, paging through items as needed.
 
 | Parameters                                                  |                                                          |
-|-------------------------------------------------------------|----------------------------------------------------------|
+| ----------------------------------------------------------- | -------------------------------------------------------- |
 | section_uuid<span class="arg-type">string - required</span> | The id of the section.                                   |
 | version<span class="arg-type">integer</span>                | The version of the section/kit to fetch (default 0).     |
 | page<span class="arg-type">integer</span>                   | The page number to retrieve when paging through results. |
 | limit<span class="arg-type">integer</span>                  | The max number of items to retrieve (default 50).        |
-

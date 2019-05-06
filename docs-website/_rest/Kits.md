@@ -15,8 +15,9 @@ headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ## Get all Kits
 
 ```shell
-curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/alpha/kits/'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/1/kits/'
 ```
+
 ```js
 // Response
 {
@@ -40,16 +41,16 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/alph
 }
 ```
 
-`GET /alpha/kits/`
+`GET /1/kits/`
 
 Returns a list of all kits in the space
-
 
 ## Kit Versions
 
 ```shell
-curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/kits/{{ page.kitID }}?include=use_versions'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/1/kits/{{ page.kitID }}?include=use_versions'
 ```
+
 ```js
 // Response
 {
@@ -84,28 +85,27 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha
 }
 ```
 
-`GET /alpha/kits/<kit_id>?include=<options>`
+`GET /1/kits/<kit_id>?include=<options>`
 
 Returns a single kit and its versions
 
-
 | Parameters                                        |                                                                                                        |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | id<span class="arg-type">string - required</span> | The uuid of the kit to fetch                                                                           |
 | include<span class="arg-type">string</span>       | Optionally include the versions of the kit. Valid options include `versions`, `use_versions`, `empty`. |
 
 ### Include options
+
 - `versions`: return all versions
 - `use_versions`: The draft and, if different, the recommended version
 - empty string: return only the kit, no versions
 
-
-
 ## Kit Outline
 
 ```shell
-curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha/kits/{{ page.kitID }}/outline?v=0'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/1/kits/{{ page.kitID }}/outline?v=0'
 ```
+
 ```js
 // Response
 {
@@ -165,12 +165,11 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/alpha
 }
 ```
 
-`GET /alpha/kits/<kit_uuid>/outline/`
+`GET /1/kits/<kit_uuid>/outline/`
 
 Retrieve the outline of a kit consisting of a list of sections and the headers within each section.
 
-
 | Parameters                                        |                                  |
-|---------------------------------------------------|----------------------------------|
+| ------------------------------------------------- | -------------------------------- |
 | id<span class="arg-type">string - required</span> | The uuid of the kit to fetch     |
 | version<span class="arg-type">integer</span>      | The version of the kit to fetch. |

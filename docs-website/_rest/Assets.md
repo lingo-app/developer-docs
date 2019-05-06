@@ -11,7 +11,7 @@ assetID: 9CD0AFF5-B050-4B97-8E65-185F969686D5
 ## Download
 
 ```shell
-curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/alpha/assets/{{ page.assetID }}/download?type=png'
+curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}@api.lingoapp.com/1/assets/{{ page.assetID }}/download?type=png'
 ```
 
 `GET /assets/<asset_id>/download/`

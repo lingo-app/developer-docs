@@ -23,6 +23,6 @@ Deleting a token is permanent. Once deleted any code using that token will fail 
 
 We would love to hear what you are doing. Understanding your use case for the API helps us know how we can improve this API.
 
-Email: info@lingoapp.com
-Twitter: [@lingo_app](https://www.twitter.com/lingo_app)
-Slack: Get in touch to request access to our Slack community.
+* Email: **[info@lingoapp.com](mailto:info@lingoapp.com)**
+* Twitter: **[@lingo_app](https://www.twitter.com/lingo_app)**
+* Slack: Get in touch to request access to our Slack community.

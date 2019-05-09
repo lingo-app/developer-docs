@@ -78,11 +78,11 @@ A kit contains a collection of assets which are organized in sections.
 | counts<span class="arg-type">[string:number]</span>          | Counts of `items`, `assets` in the section.                          |
 | headers<span class="arg-type">[ [Heading](#heading) ]</span> | When fetching an outline, a section will contain a list of headings. |
 
-### Heading
+### Outline Heading
 
-A heading is special type of [item](#item) that can be used to create a visual hierarchy within Lingo.
+A heading is special type of [item](#item) that can be used to create a visual hierarchy within Lingo. Because headings are a type of [Item](#item), they are also inlcuded when fetching content in a section.
 
-Because headings are a type of [Item](#item), they are returned inline when fetching content in a section. In the outline these items include a subset of the data provided when fetching items directly.
+When included in the [Kit Outline](kit-outline), headings are represented by a subset of the data provided when fetching items within a section.
 
 | Properties                                        |                                                  |
 |---------------------------------------------------|--------------------------------------------------|
@@ -93,33 +93,39 @@ Because headings are a type of [Item](#item), they are returned inline when fetc
 
 ## Item
 
-A kit contains a collection of assets which are organized in sections.
+A kit contains a collection of items which are organized in sections.
 
-Items can be one of three types:
+There are a few types of items:
 
-- Asset
-- Inline Note
-- Heading
+- Asset: A file or color that is intended to be used by consumers of the kit
+- Supporting Image: Non-usable images typically used to provide context to the assets.
+- Inline Note: A note displayed inline with other content
+- Heading: Larger text used to create separation between groups of content
 
-Inline notes and headings represent text and don't have an associated asset. The text content of those items is stored in the `data` property. In Javascript this looks like:
+![Items](../../images/glossary_items.png)
 
+Both asset and supporting image items represent an associated asset object while inline note and heading items display text content embeded in their data attribute.
+
+In Javascript, accessing text item content this looks like:
 ```js
 const item = ... // fetched inline note
 item.type; // inline_note
 const note = item.data.content;
 ```
 
-| Properties                                                          |                                                                     |
-|---------------------------------------------------------------------|---------------------------------------------------------------------|
-| uuid<span class="arg-type">string</span>                            | The unique identifier for the item                                  |
-| kit_uuid<span class="arg-type">number</span>                        | The id of the kit the item is in.                                   |
-| section_uuid<span class="arg-type">string</span>                    | the id of the section the item is in.                               |
-| version<span class="arg-type">number</span>                         | The version number of the item.                                     |
-| status<span class="arg-type">string</span>                          | The status of the item (always `active`).                           |
-| display_order<span class="arg-type">number</span>                   | A relative order of the item in the section.                        |
-| type<span class="arg-type">`asset`, `inline_note`, `heading`</span> | A relative order of the item in the section.                        |
-| asset_uuid<span class="arg-type">string or null</span>              | If type is asset, the id of the asset.                              |
-| data<span class="arg-type">object</span>                            | For headings and inline notes, access the text with `data.content`. |
+| Properties                                                                              |                                                                     |
+|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| uuid<span class="arg-type">string</span>                                                | The unique identifier for the item                                  |
+| kit_uuid<span class="arg-type">number</span>                                            | The id of the kit the item is in.                                   |
+| section_uuid<span class="arg-type">string</span>                                        | the id of the section the item is in.                               |
+| version<span class="arg-type">number</span>                                             | The version number of the item.                                     |
+| status<span class="arg-type">string</span>                                              | The status of the item (always `active`).                           |
+| display_order<span class="arg-type">number</span>                                       | A relative order of the item in the section.                        |
+| type<span class="arg-type">`asset`, `inline_note`, `heading`, `supporting_image`</span> | A relative order of the item in the section.                        |
+| asset_uuid<span class="arg-type">string or null</span>                                  | If type is `asset` or `supporting_image`, the uuid of the asset.    |
+| asset<span class="arg-type">[Asset](#asset)</span>                                      | If type is `asset` or `supporting_image`, the data for the asset.   |
+| data<span class="arg-type">object</span>                                                | For headings and inline notes, access the text with `data.content`. |
+
 
 ## Asset
 

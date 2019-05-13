@@ -106,9 +106,9 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/1/sec
 
 Retrieve the content within each section, paging through items as needed.
 
-| Parameters                                                  |                                                            |
-| ----------------------------------------------------------- | ---------------------------------------------------------- |
-| section_uuid<span class="arg-type">string - required</span> | The id of the section.                                     |
-| version<span class="arg-type">integer</span>                | The version of the section/kit to fetch (default 0).       |
-| page<span class="arg-type">integer</span>                   | The page number to retrieve when paging through results.   |
-| limit<span class="arg-type">integer</span>                  | The max number of items to retrieve (default 50, max 200). |
+| Parameters                                                  |                                                              |
+| ----------------------------------------------------------- | ------------------------------------------------------------ |
+| section_uuid<span class="arg-type">string - required</span> | The id of the section.                                       |
+| version<span class="arg-type">integer</span>                | The version of the section/kit to fetch (default 0).         |
+| page<span class="arg-type">integer</span>                   | The page number to retrieve when paging through results.     |
+| limit<span class="arg-type">integer</span>                  | The max number of items to retrieve, up to 200 (default 50). |

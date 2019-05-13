@@ -22,7 +22,7 @@ Retrieve the content within each section, paging through items as needed.
 | id<span class="arg-type">string - required</span> | The id of the section.                                               |
 | version<span class="arg-type">integer</span>      | The version of the section/kit to fetch.                             |
 | page<span class="arg-type">integer</span>         | The page number to retrieve when paging through results (default 1). |
-| limit<span class="arg-type">integer</span>        | The max number of items to retrieve (default 50, max 200).           |
+| limit<span class="arg-type">integer</span>        | The max number of items to retrieve, up to 200 (default 50).         |
 
 ## Heading Contents
 

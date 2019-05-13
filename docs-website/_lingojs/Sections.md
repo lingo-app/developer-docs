@@ -9,37 +9,34 @@ headerID: D86B229B-0171-4EA3-893D-456760D3E8EF
 ---
 
 ```js
-lingo.fetchSection('{{ page.sectionD }}', 0).then(section => {
-
-}).catch(err => {
-
-})
+lingo
+  .fetchSection("{{ page.sectionD }}", 0)
+  .then(section => {})
+  .catch(err => {});
 ```
 
 Retrieve the content within each section, paging through items as needed.
 
 | Parameters                                        |                                                                      |
-|---------------------------------------------------|----------------------------------------------------------------------|
+| ------------------------------------------------- | -------------------------------------------------------------------- |
 | id<span class="arg-type">string - required</span> | The id of the section.                                               |
 | version<span class="arg-type">integer</span>      | The version of the section/kit to fetch.                             |
 | page<span class="arg-type">integer</span>         | The page number to retrieve when paging through results (default 1). |
-| limit<span class="arg-type">integer</span>        | The max number of items to retrieve (default 50).                    |
-
+| limit<span class="arg-type">integer</span>        | The max number of items to retrieve (default 50, max 200).           |
 
 ## Heading Contents
 
 ```js
-lingo.fetchAssetsForHeading('{{ page.sectionD }}', '{{ page.headerID }}').then(items => {
-
-}).catch(err => {
-
-})
+lingo
+  .fetchAssetsForHeading("{{ page.sectionD }}", "{{ page.headerID }}")
+  .then(items => {})
+  .catch(err => {});
 ```
 
 Retrieve the content within a section that fall under a particular heading.
 
 | Parameters                                               |                                                                              |
-|----------------------------------------------------------|------------------------------------------------------------------------------|
+| -------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | sectionId<span class="arg-type">string - required</span> | The id of the section.                                                       |
 | headingId<span class="arg-type">string - required</span> | The id or name of the section. Note that with name, the first match is used. |
 | version<span class="arg-type">integer</span>             | The version of the section/kit to fetch.                                     |

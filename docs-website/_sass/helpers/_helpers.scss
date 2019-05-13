@@ -20,6 +20,19 @@ figcaption {
   line-height: 1;
 }
 
+.beta {
+  background: #ff6161;
+  border-radius: 3px;
+  font-size: 0.7em;
+  padding: 0 3px;
+  vertical-align: super;
+  color: white;
+  font-weight: bold;
+  &:before {
+    content: "beta";
+  }
+}
+
 /*Clearfix*/
 .group:before,
 .group:before,

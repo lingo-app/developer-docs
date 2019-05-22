@@ -98,7 +98,7 @@ A kit contains a collection of items which are organized in sections.
 There are a few types of items:
 
 - Asset: A file or color that is intended to be used by consumers of the kit
-- Supporting Image <span class="beta"></span>: Non-usable images typically used to provide context to the assets.
+- Supporting Image: Non-usable images typically used to provide context to the assets.
 - Inline Note: A note displayed inline with other content
 - Heading: Larger text used to create separation between groups of content
 

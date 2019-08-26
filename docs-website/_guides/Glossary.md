@@ -101,18 +101,9 @@ There are a few types of items:
 - Supporting Image: Non-usable images typically used to provide context to the assets.
 - Inline Note: A note displayed inline with other content
 - Heading: Larger text used to create separation between groups of content
+- Code Snippet <span class="beta"></span>: A block of code to be displayed inline with other content
 
 ![Items](../../images/glossary_items.png)
-
-Both asset and supporting image items represent an associated asset object while inline note and heading items display text content embeded in their data attribute.
-
-In Javascript, accessing text item content this looks like:
-
-```js
-const item = ... // fetched inline note
-item.type; // inline_note
-const note = item.data.content;
-```
 
 | Properties                                                                              |                                                                     |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -127,11 +118,32 @@ const note = item.data.content;
 | asset<span class="arg-type">[Asset](#asset)</span>                                      | If type is `asset` or `supporting_image`, the data for the asset.   |
 | data<span class="arg-type">object</span>                                                | For headings and inline notes, access the text with `data.content`. |
 
+### Item Data
+
+The data object on an item contains different data depending on the type of the item.
+
+- `data.content` contains the text content for notes, headings, and code snippets.
+- `data.code_language` represents the language of the code in `data.content` for code snippets if any is selected by the user.
+
+In Javascript, you might access the item content like this:
+
+```js
+const item = ... // fetched inline note
+if (item.type == "asset" || item.type =="supporting_image") {
+    const asset = item.asset;
+} else if (item.type == "inline_note" || item.type == "heading") {
+    const string = item.data.content;
+} else if (item.type == "code_snippet") {
+    const code = item.data.content;
+    const lang = item.data.code_language; // may be null
+}
+```
+
 ## Asset
 
 Assets represent the visual content of Lingo. Typically this is a file but in some cases assets are stored as data (i.e. colors).
 
-Assets themselves have no relationship to a kit. [Item] objects manage that relationship. It may be important to note that a single asset can have multiple items in the same or different kits; In Lingo those we call those `References`.
+Assets themselves have no relationship to a kit. [Item](#item) objects manage that relationship. It may be important to note that a single asset can have multiple items in the same or different kits; In Lingo those we call those `References`.
 
 | Properties                                                |                                                       |
 | --------------------------------------------------------- | ----------------------------------------------------- |

@@ -8,6 +8,7 @@ jobs:
     name: Master
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v1
       - name: Deploy Docs
         uses: ./.github/actions/deploy-docs
         env:

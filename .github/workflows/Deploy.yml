@@ -1,5 +1,8 @@
-name: Process
-on: push
+name: Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
   master:
     name: Master

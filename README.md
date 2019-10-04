@@ -27,9 +27,9 @@ gem install bundler jekyll
 Finally, to build and view, run:
 
 ```
-npm run docs
+npm start
 ```
 
 ## Deploying
 
-The docs are automatically deployed by GitHub actions when merging into Master. To deploy manually run `npm run deploy`
+The docs are automatically deployed by GitHub actions when merging into Master. To deploy manually run `npm deploy`

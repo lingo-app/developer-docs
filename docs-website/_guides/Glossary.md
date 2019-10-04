@@ -25,7 +25,7 @@ This screenshot shows the kits as they appear in Lingo.
 ![Kits](../../images/glossary_kits.png)
 
 | Properties                                      |                                                           |
-|-------------------------------------------------|-----------------------------------------------------------|
+| ----------------------------------------------- | --------------------------------------------------------- |
 | kit_uuid<span class="arg-type">string</span>    | The unique identifier for the kit                         |
 | space_id<span class="arg-type">number</span>    | The id of the space that owns the kit.                    |
 | name<span class="arg-type">string</span>        | The name of the kit.                                      |
@@ -42,7 +42,7 @@ Every kit always has a "Shared Draft" which is version `0`. In Lingo only the Sh
 ![Versions](../../images/glossary_versions.png)
 
 | Properties                                             |                                                              |
-|--------------------------------------------------------|--------------------------------------------------------------|
+| ------------------------------------------------------ | ------------------------------------------------------------ |
 | kit_uuid<span class="arg-type">string</span>           | The unique identifier for the kit the version is in          |
 | version<span class="arg-type">number</span>            | The numeric version.                                         |
 | version_identifier<span class="arg-type">string</span> | A string identifier of the version.                          |
@@ -60,7 +60,7 @@ The outline is used by Lingo to populate the kit navigator shown here. Notice be
 ![Outline](../../images/glossary_outline.png)
 
 | Properties                                                           |                                      |
-|----------------------------------------------------------------------|--------------------------------------|
+| -------------------------------------------------------------------- | ------------------------------------ |
 | kit_version<span class="arg-type">[Kit Version](#kit-version)</span> | The version the outline represents   |
 | sections<span class="arg-type">[ [Section](#section) ]</span>        | An array of sections in the version. |
 
@@ -68,15 +68,15 @@ The outline is used by Lingo to populate the kit navigator shown here. Notice be
 
 A kit contains a collection of assets which are organized in sections.
 
-| Properties                                                   |                                                                      |
-|--------------------------------------------------------------|----------------------------------------------------------------------|
-| uuid<span class="arg-type">string</span>                     | The unique identifier for the kit                                    |
-| version<span class="arg-type">number</span>                  | The numeric version the section belongs to.                          |
-| name<span class="arg-type">string</span>                     | The name of the kit.                                                 |
-| display_order<span class="arg-type">number</span>            | A relative order of the section in the version.                      |
-| status<span class="arg-type">string</span>                   | The status of the section (always `active`).                         |
-| counts<span class="arg-type">[string:number]</span>          | Counts of `items`, `assets` in the section.                          |
-| headers<span class="arg-type">[ [Heading](#heading) ]</span> | When fetching an outline, a section will contain a list of headings. |
+| Properties                                                 |                                                                      |
+| ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| uuid<span class="arg-type">string</span>                   | The unique identifier for the kit                                    |
+| version<span class="arg-type">number</span>                | The numeric version the section belongs to.                          |
+| name<span class="arg-type">string</span>                   | The name of the kit.                                                 |
+| display_order<span class="arg-type">number</span>          | A relative order of the section in the version.                      |
+| status<span class="arg-type">string</span>                 | The status of the section (always `active`).                         |
+| counts<span class="arg-type">[string:number]</span>        | Counts of `items`, `assets` in the section.                          |
+| headers<span class="arg-type">[[Heading](#heading)]</span> | When fetching an outline, a section will contain a list of headings. |
 
 ### Outline Heading
 
@@ -85,7 +85,7 @@ A heading is special type of [item](#item) that can be used to create a visual h
 When included in the [Kit Outline](kit-outline), headings are represented by a subset of the data provided when fetching items within a section.
 
 | Properties                                        |                                                  |
-|---------------------------------------------------|--------------------------------------------------|
+| ------------------------------------------------- | ------------------------------------------------ |
 | uuid<span class="arg-type">string</span>          | The unique identifier for the heading item       |
 | version<span class="arg-type">number</span>       | The version number of the heading.               |
 | name<span class="arg-type">string</span>          | The text of the heading.                         |
@@ -107,7 +107,7 @@ There are a few types of items:
 ![Items](../../images/glossary_items.png)
 
 | Properties                                                                                                       |                                                                     |
-|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------|
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | uuid<span class="arg-type">string</span>                                                                         | The unique identifier for the item                                  |
 | kit_uuid<span class="arg-type">number</span>                                                                     | The id of the kit the item is in.                                   |
 | section_uuid<span class="arg-type">string</span>                                                                 | the id of the section the item is in.                               |
@@ -124,7 +124,7 @@ There are a few types of items:
 The data object on an item contains different data depending on the type of the item.
 
 | Properties                                           |                                                                            |
-|------------------------------------------------------|----------------------------------------------------------------------------|
+| ---------------------------------------------------- | -------------------------------------------------------------------------- |
 | content<span class="arg-type">string</span>          | The text content for text items, e.g. notes, headings, and code snippets.  |
 | display_style<span class="arg-type">string</span>    | The style of the item, if any. (e.g. guides can be `image` or `text_only`) |
 | display_size<span class="arg-type">number</span>     | The relative size to display the item at. (e.g. guides can be `1` or `2`)  |
@@ -157,17 +157,18 @@ Assets represent the visual content of Lingo. Typically this is a file but in so
 
 Assets themselves have no relationship to a kit. [Item](#item) objects manage that relationship. It may be important to note that a single asset can have multiple items in the same or different kits; In Lingo those we call those `References`.
 
-| Properties                                                |                                                       |
-|-----------------------------------------------------------|-------------------------------------------------------|
-| uuid<span class="arg-type">string</span>                  | The unique identifier for the kit                     |
-| type<span class="arg-type">[AssetType](#assettype)</span> | The id of the space that owns the kit.                |
-| name<span class="arg-type">string</span>                  | The name of the asset.                                |
-| notes<span class="arg-type">string</span>                 | Notes for the asset, if any.                          |
-| keywords<span class="arg-type">string</span>              | A comma separated list of keywords.                   |
-| colors<span class="arg-type">[ [Color](#color) ]</span>   | An array of colors for COLOR assets.                  |
-| file_hash<span class="arg-type">string</span>             | A hash of the asset file (or color).                  |
-| file_id<span class="arg-type">string</span>               | A unique identifier of the file.                      |
-| size<span class="arg-type">number</span>                  | The size of the file in bytes, if any, otherwise `0`. |
+| Properties                                                  |                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| uuid<span class="arg-type">string</span>                    | The unique identifier for the kit                                                                                                                                                                                                                                                                                              |
+| type<span class="arg-type">[[AssetType](#assettype)]</span> | The id of the space that owns the kit.                                                                                                                                                                                                                                                                                         |
+| name<span class="arg-type">string</span>                    | The name of the asset.                                                                                                                                                                                                                                                                                                         |
+| notes<span class="arg-type">string</span>                   | Notes for the asset, if any.                                                                                                                                                                                                                                                                                                   |
+| keywords<span class="arg-type">string</span>                | A comma separated list of keywords.                                                                                                                                                                                                                                                                                            |
+| colors<span class="arg-type">[[Color](#color)]</span>       | An array of colors for COLOR assets.                                                                                                                                                                                                                                                                                           |
+| file_hash<span class="arg-type">string</span>               | A hash of the asset file (or color).                                                                                                                                                                                                                                                                                           |
+| file_id<span class="arg-type">string</span>                 | A unique identifier of the file.                                                                                                                                                                                                                                                                                               |
+| size<span class="arg-type">number</span>                    | The size of the file in bytes, if any, otherwise `0`.                                                                                                                                                                                                                                                                          |
+| meta<span class="arg-type">dictionary</span>                | Additional data about the asset. Often, this is [Filecuts](#filecuts) data for exportable filetypes, but it can also be extended details about font assets. _The meta dictionary does not support partial updates. You must include the entire meta dictionary when submitting updates to it, otherwise data loss will occur._ |
 
 <a id="color"></a>
 
@@ -176,7 +177,7 @@ Assets themselves have no relationship to a kit. [Item](#item) objects manage th
 Color assets contain a list of colors. Colors are stored in HSBA.
 
 | Properties                                     |                                            |
-|------------------------------------------------|--------------------------------------------|
+| ---------------------------------------------- | ------------------------------------------ |
 | name<span class="arg-type">string</span>       | The unique identifier for the kit          |
 | hue<span class="arg-type">number</span>        | The hue value of the color (0-360).        |
 | saturation<span class="arg-type">number</span> | The saturation value of the color (0-100). |
@@ -186,7 +187,7 @@ Color assets contain a list of colors. Colors are stored in HSBA.
 ### AssetType
 
 | File Type                    | Type               |
-|------------------------------|--------------------|
+| ---------------------------- | ------------------ |
 | SVG                          | SVG                |
 | JPG                          | JPG                |
 | PNG                          | PNG                |
@@ -211,3 +212,28 @@ Color assets contain a list of colors. Colors are stored in HSBA.
 | Sketch Layer Style           | SKETCH_LAYER_STYLE |
 | Sketch Text Style            | SKETCH_TEXT_STYLE  |
 | Color                        | COLOR              |
+
+### Filecuts
+
+For assets that are exportable to different types, a filecut dictionary is included in the meta dictionary, that can be used to determine the allowed types and configuration for exports.
+
+| Properties                                                                       |                                            |
+| -------------------------------------------------------------------------------- | ------------------------------------------ |
+| available_types<span class="arg-type">[[AvailableTypes](#availabletypes)]</span> | The filetypes available for custom exports |
+| presets<span class="arg-type">[[Presets](#presets)]</span>                       | The export presets created for this asset  |
+
+### AvailableTypes
+
+| Properties                                                  |                                                                                                                    |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| type<span class="arg-type">[[AssetType](#assettype)]</span> | The filetype that is available for custom exports                                                                  |
+| enabled<span class="arg-type">bool</span>                   | If true, this filetype is available for custom exports. If false, this filetype is not available for custom export |
+| resizable<span class="arg-type">bool</span>                 | If true, the asset can resized when exported to this filetype. If false, it cannot be resized                      |
+
+### Presets
+
+| Properties                                                  |                                                                                                                                                                                                                                                                                                                                              |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| type<span class="arg-type">[[AssetType](#assettype)]</span> | The filetype defined for this preset                                                                                                                                                                                                                                                                                                         |
+| size<span class="arg-type">string</span>                    | The size for this custom export. By default, this is 1x. You can define a relative size (0.5x, 2x, etc), exact size (100x100), or single-side (100w, 100h). If the aspect ratio of the image differs from the provided dimensions, the asset will be resized maintaining the original aspect ratio, to fit within your specified dimensions. |
+| description<span class="arg-type">string</span>             | The description for this preset, displayed in the UI.                                                                                                                                                                                                                                                                                        |

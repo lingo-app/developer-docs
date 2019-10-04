@@ -76,13 +76,64 @@ curl -XGET 'https://{{ page.spaceID }}:{{ page.apiToken }}api.lingoapp.com/1/sec
             "file_id": "a26f993f-a07e-4c15-8eb5-02b6301028a8",
             "file_updated": "2018-06-12 18:28:52.124741+0000",
             "keywords": "Logo",
-            "meta": {},
+            "meta": {
+              "filecuts": {
+                "available_types": [
+                  {
+                    "enabled": true,
+                    "resizable": false,
+                    "type": "SVG"
+                  },
+                  {
+                    "enabled": true,
+                    "resizable": false,
+                    "type": "PDF"
+                  },
+                  {
+                    "enabled": true,
+                    "resizable": false,
+                    "type": "EPS"
+                  },
+                  {
+                    "enabled": true,
+                    "resizable": true,
+                    "type": "PNG"
+                  },
+                  {
+                    "enabled": true,
+                    "resizable": true,
+                    "type": "JPG"
+                  }
+                ],
+                "presets": [
+                  {
+                    "description": "",
+                    "size": "1x",
+                    "type": "SVG"
+                  },
+                  {
+                    "description": "",
+                    "size": "1x",
+                    "type": "PDF"
+                  },
+                  {
+                    "description": "",
+                    "size": "1x",
+                    "type": "EPS"
+                  },
+                  {
+                    "description": "",
+                    "size": "1x",
+                    "type": "PNG"
+                  }
+                ]
+              }
+            },
             "name": "Acme Logo",
             "notes": "",
             "size": 9361,
             "space_id": 5,
             "permalink": "https://api-test.lingoapp.com/v4/assets/{{ page.assetID }}/download",
-
             "thumbnail_placeholders": {
                 "292": "https://lingo-test.s3.amazonaws.com/thumbnails/placeholder/svg/292x292.png",
                 "480": "https://lingo-test.s3.amazonaws.com/thumbnails/placeholder/svg/480x480.png",

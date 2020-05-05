@@ -14,7 +14,7 @@ ENV GEM_HOME="/usr/local/bundle"
 ENV PATH $GEM_HOME/bin:$GEM_HOME/gems/bin:$PATH
 
 RUN gem update --system
-RUN gem install bundler -v "2.0.1"
+RUN gem install bundler -v "2.1.4"
 
 RUN apt-get update && apt-get install -y \
     python3 \

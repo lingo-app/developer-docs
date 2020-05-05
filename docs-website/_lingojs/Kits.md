@@ -47,7 +47,7 @@ Returns a single kit and its versions
 
 ```js
 
-lingo.fetchKitOutline('{{ page.kitID }}', 'versions').then(kits => {
+lingo.fetchKitOutline('{{ page.kitID }}', 0).then(kits => {
 
 }).catch(err => {
 

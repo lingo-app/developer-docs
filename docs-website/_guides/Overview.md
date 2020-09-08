@@ -7,11 +7,11 @@ order: 100
 
 ## Getting access
 
-API Access is available for all Spaces on the Plus or enterpise plans. The option to create an API token will only be displayed for spaces on these plans.
+API Access is available for all Spaces on the Plus or enterpise plans. The option to create an API token can be found on the settings page for eligable spaces on these plans.
 
 ## Creating a token
 
-Access to the API is token based. Admins of a space can create a token on the settings page for the desired space.
+API access requires an API token. Space admin can can create a token on the settings page for the desired space.
 
 Deleting a token is permanent. Once deleted any code using that token will fail to authenticate.
 

@@ -16,12 +16,12 @@ To build the site you will need:
 - Ruby
 - [Bundler](http://bundler.io)
 
-Due to some issues with newer versions of macOS you may need to install a new version of Ruby, more details on that in this [jekyll guide](https://jekyllrb.com/docs/installation/macos/#set-up-ruby). Without it you will get a permission error when trying to install bundler.
+On older versions of macOS (<10.15) you may need to install a newer version of Ruby, more details on that in this [jekyll guide](https://jekyllrb.com/docs/installation/macos/#set-up-ruby).
 
 After that is setup run:
 
 ```
-gem install bundler jekyll
+gem install --user-install bundler jekyll
 ```
 
 Finally, to build and view, run:

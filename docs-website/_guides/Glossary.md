@@ -242,6 +242,7 @@ For assets that are exportable to different types, a filecut dictionary is inclu
 |  | MOV                          | Video         | MOV                |
 |  | MP4                          | Video         | MP4                |
 |  | Text Style                   | Font          | TEXT_STYLE         |
+|  | Plain Text                   | Text Document | TXT                |
 |  | Word Document                | Text Document | DOCX               |
 |  | Word Template                | Text Document | DOTX               |
 |  | Pages Document               | Text Document | PAGES              |
@@ -252,6 +253,7 @@ For assets that are exportable to different types, a filecut dictionary is inclu
 |  | Keynote Theme                | Presentation  | KEYNOTE_THEME      |
 |  | Photoshop Document           | Adobe Design  | PSD                |
 |  | Illustrator                  | Adobe Design  | AI                 |
+|  | InDesign                     | Adobe Design  | INDD               |
 |  | Sketch Symbol                | Sketch        | SKETCH_SYMBOL      |
 |  | Sketch Layer (e.g. artboard) | Sketch        | SKETCH_LAYER       |
 |  | Sketch Layer Style           | Sketch        | SKETCH_LAYER_STYLE |

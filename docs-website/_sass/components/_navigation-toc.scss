@@ -13,9 +13,6 @@
 }
 
 @include tablet-and-above {
-  .toc-nav {
-    margin-top: 1rem;
-  }
 
   .nav-toggle {
     display: inline-block;
@@ -24,6 +21,7 @@
 
   .toc-nav header {
     position: relative;
+    visibility: hidden;
   }
 
   .search-toggle {
@@ -77,11 +75,9 @@
 
 @include tablet-and-above {
   .toc-nav {
-    padding-top: 2.5rem;
     padding-bottom: 2.5rem;
     background: linear-gradient(90deg, $background-light, #fbfbfb);
     box-shadow: inset -1px 0 0 $divider-dark;
-    margin-top: -1.5rem;
     margin-bottom: 2rem !important;
     position: relative;
   }
@@ -101,14 +97,14 @@
     z-index: 0;
   }
 
-  .toc-nav::before {
-    top: 0;
-    background: linear-gradient(
-      180deg,
-      $background-light,
-      rgba($background-light, 0)
-    );
-  }
+  // .toc-nav::before {
+  //   top: 0;
+  //   background: linear-gradient(
+  //     180deg,
+  //     $background-light,
+  //     rgba($background-light, 0)
+  //   );
+  // }
 
   .toc-nav::after {
     bottom: 0;
@@ -129,10 +125,10 @@
 
 @include tablet-and-below {
   .toc-nav {
-    margin: -2.5rem -0.5rem 0;
-    padding: 0.594rem 1rem;
+    margin: 0 -0.5rem 0;
+    padding: 8px;
     width: calc(100% + 1rem); //fucking hack | #MakeTheWebLessHackyAgain
-    border: 1px solid $border-dark-high;
+    border: 1px solid $border;
     border-radius: $radius-normal;
     position: relative;
   }

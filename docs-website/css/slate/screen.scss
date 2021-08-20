@@ -54,8 +54,9 @@ body {
 }
 
 .toc-wrapper {
-  transition: left 0.3s ease-in-out;
-
+  transition-property: left box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   overflow-y: auto;
   overflow-x: hidden;
   position: fixed;
@@ -67,6 +68,7 @@ body {
   background-color: $nav-bg;
   font-size: 16px;
   font-weight: bold;
+  border-right: 1px solid $border;
 
   // language selector for mobile devices
   .lang-selector {
@@ -78,20 +80,23 @@ body {
   }
 
   & > .toc-header {
-    background: $background-ultra-light;
-    height: 65px;
+    background: $background-white;
+    height: 71px;
     border-bottom: 1px solid $border;
+    display: flex;
+    align-items: center;
 
     // This is the logo at the top of the ToC
     & > .lingo-logo {
-      padding: 14px 32px;
-      display: inline-block;
+      padding-left: 32px;
+      display: flex;
     }
   }
 
   & > .search {
     position: relative;
-    background: $background-light-alternate;
+    background: $color-neutral-white;
+    border: 1px solid $border;
     margin: 8px;
     border-radius: $radius-normal;
 
@@ -102,6 +107,8 @@ body {
       // margin-bottom: 6px !important;
       width: $nav-width - 30;
       outline: none;
+      font-weight: normal;
+      font-size: 14px;
       border: none;
       color: $text-dark;
       border-radius: 0; /* ios has a default border radius */
@@ -116,6 +123,7 @@ body {
       color: $text-medium;
       transition: color 0.2s $ease-in-out-quad;
       @extend %icon-search;
+      font-weight: lighter;
     }
     &:active:before,
     &:focus-within:before {
@@ -309,6 +317,8 @@ body {
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
+  height: 100%;
+  overflow-y: auto;
 
   padding-bottom: 1px; // prevent margin overflow
 
@@ -420,7 +430,19 @@ body {
     font-weight: 300;
     line-height: 32px;
     color: #292e31;
-    font-size: 25px;
+    font-size: 28px;
+    font-weight: 800;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin: 0;
+  }
+
+  h2 {
+    font-weight: 300;
+    line-height: 32px;
+    color: #292e31;
+    font-size: 28px;
+    font-weight: 400;
     padding-top: 50px;
     padding-bottom: 20px;
     margin: 0;
@@ -679,9 +701,11 @@ body {
 
   .toc-wrapper {
     left: -$nav-width;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
 
     &.open {
       left: 0;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
   }
 

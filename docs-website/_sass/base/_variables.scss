@@ -8,7 +8,7 @@ $font-semibold: 600;
 
 /* --- Border Radii --- */
 $radius-big: 10rem; /*In order to make circular elements*/
-$radius-normal: 3px; /*2px*/
+$radius-normal: 4px; /*2px*/
 $radius-small: 2px; /*1px*/
 
 /* --- Colors --- */
@@ -126,8 +126,8 @@ $color-quaternary-dark: #478e87;
 $color-tertiary-dark: #f4ae22;
 $color-quaternary-lighter: #c5ebe8;
 $color-neutral-dark: #cccccc;
-$color-neutral-light: #e6e6e6;
-$color-neutral-lighter: #f3f3f3;
+$color-neutral-light: #ebebeb;
+$color-neutral-lighter: #f2f2f2;
 $color-quaternary-light: #a7e0dc;
 $color-tertiary: #fecb00;
 $color-neutral-lightest: #fafafa;
@@ -144,7 +144,7 @@ $color-tertiary-lighter: #ffe7b3;
 $color-feedback-warning: #ffac26;
 $color-feedback-error: #ff4444;
 $color-primary-light: #ff8e99;
-$color-neutral-darker: #999999;
+$color-neutral-darker: #757575;
 $color-neutral-white: #ffffff;
 $color-feedback-success: #00c851;
 $color-secondary-dark: #4065bf;
@@ -181,12 +181,14 @@ $text-light-ultra-low: hsla(0, 100%, 100%, 0.35);
 
 // Backgrounds
 $background-dark: $color-neutral-darkest;
-$background-light-alternate: $color-neutral-light;
+$background-light-alternate: $color-neutral-lighter;
 $background-medium: #373737;
 $background-white: #ffffff;
 $background-light: #fdfdff;
 $background-ultra-light: $color-neutral-lightest;
 $background-light-dark: hsla(220, 13%, 97%, 1);
+
+$toolbar-background: rgba(255, 255, 255, 0.98);
 
 //Borders and Dividers (dark on light backgrounds)
 $border-dark-ultra-high: hsla(0, 0%, 0%, 0.2);
@@ -195,7 +197,7 @@ $border-dark: hsla(0, 0%, 0%, 0.06);
 $divider-dark: hsla(0, 0%, 0%, 0.03);
 
 //Borders and Dividers (dark on light backgrounds)
-$border: $color-neutral-lighter;
+$border: $color-neutral-light;
 $divider-light: hsla(0, 100%, 100%, 0.1);
 
 //Easing

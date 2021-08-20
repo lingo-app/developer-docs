@@ -1,6 +1,6 @@
 /*Main Navigation*/
 .main-nav {
-  background-color: $background-ultra-light;
+  background-color: $toolbar-background;
   border-bottom: 1px solid $border;
 }
 
@@ -11,11 +11,19 @@
 }
 
 /*Logo*/
-.main-nav h1 {
+.main-nav .logo {
   margin: 0;
-  height: 3.125rem; /*50px*/
-  display: inline-block;
-  font-size: 2.75em !important;
+  a {
+    display: flex;
+  }
+}
+
+.main-nav.slate .logo {
+  display: hidden;
+}
+
+.main-nav.slate .wrapper {
+  max-width: 100%;
 }
 
 [role="banner"] {
@@ -35,16 +43,26 @@
   display: none;
 }
 
+
+
+.main-nav li a {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 @include tablet-and-above {
   .main-nav {
     width: 100%;
     padding: 0 2rem;
-    padding-top: 0.4375rem; /*7px*/
-    padding-bottom: 0.4375rem; /*7px*/
+    position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 50;
   }
 
   .main-nav nav {
     flex-wrap: nowrap; //to prevent nav elements to fall into a new line
+    height: 70px
   }
 
   .main-nav h1 {
@@ -55,8 +73,30 @@
     flex: 3.3; //to balance with the logo
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    height: 100%;
+  }
+
+  .main-nav li {
+    height: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: $color-neutral-white;
+    transition: background 0.2s;
+
+    a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      color: $text-dark !important;
+    }
+  }
+
+  .main-nav li:hover {
+    background: $color-neutral-lighter;
   }
 }
 
@@ -77,10 +117,8 @@
     will-change: transform; //Perf!
     width: 100%;
     z-index: 99;
-    padding: 0 1rem;
+    padding: 8px 1rem;
     margin-top: -3.5rem; //56px
-    padding-top: 0.1875rem; //3px
-    padding-bottom: 0.1875rem; //3px
   }
 
   .main-nav nav {
@@ -114,7 +152,6 @@
   }
 
   .main-nav li:not(:last-child) {
-    padding: 0;
     border-bottom: 1px solid $divider-light;
   }
 

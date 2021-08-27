@@ -13,4 +13,6 @@ echo 'Build successful'
 echo "Sending to S3..."
 s3Path="s3://developer.lingoapp.com/"
 aws s3 sync ./_site $s3Path --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --delete
-echo "Uploaded developer site to $s3Path";
+echo "Uploaded developer site to $s3Path"
+
+aws cloudfront create-invalidation --distribution-id ${CF_DISTRIBUTION} --paths "/*"

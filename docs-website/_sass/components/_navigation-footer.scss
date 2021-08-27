@@ -11,11 +11,13 @@ body > section:nth-of-type(even):last-of-type + footer {
   font-size: 1rem;
   line-height: 1.5;
   vertical-align: middle;
-  color: $text-dark;
+  color: $text-medium;
+  font-size: 14px;
 }
 
 .main-footer a {
   color: $text-dark;
+  font-size: 14px;
 }
 
 .main-footer {

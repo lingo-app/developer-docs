@@ -5,11 +5,13 @@ section: topics
 ---
 
 ```shell
-npm install lingo-sdk --save
+npm install @lingo-app/node --save-dev
+// or
+yarn add -D @lingo-app/node
 ```
 
 ```js
-const lingo = require("lingo-sdk");
+import Lingo from "@lingo-app/node"
 ```
 
-Install `lingo-sdk` with npm. Require `lingo-sdk` in your javascript file.
+Install `@lingo-app/node` with npm or yarn then import it into a javascript or typescript file.

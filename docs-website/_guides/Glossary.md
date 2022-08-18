@@ -241,6 +241,9 @@ For assets that are exportable to different types, a filecut dictionary is inclu
 |  | Lottie                       | Animation     | LOTTIE             |
 |  | MOV                          | Video         | MOV                |
 |  | MP4                          | Video         | MP4                |
+|  | MP3                          | Audio         | MP3                |
+|  | M4A                          | Audio         | M4A                |
+|  | WAV                          | Audio         | WAV                |
 |  | Text Style                   | Font          | TEXT_STYLE         |
 |  | Plain Text                   | Text Document | TXT                |
 |  | Word Document                | Text Document | DOCX               |
@@ -258,3 +261,4 @@ For assets that are exportable to different types, a filecut dictionary is inclu
 |  | Sketch Layer (e.g. artboard) | Sketch        | SKETCH_LAYER       |
 |  | Sketch Layer Style           | Sketch        | SKETCH_LAYER_STYLE |
 |  | Sketch Text Style            | Sketch        | SKETCH_TEXT_STYLE  |
+|  | Zip                          | Container     | ZIP                |

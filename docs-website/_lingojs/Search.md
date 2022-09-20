@@ -84,7 +84,7 @@ const result = await lingo.search()
   .fetch()
 
 console.log(`Found ${result.total} matches!`)
-const items = result.results.map(res => res.object)
+const assets = result.results.map(res => res.object)
 ```
 
 The library provides access to all the assets that exist in your space.
@@ -100,7 +100,7 @@ const result = await lingo.search()
   .fetch()
 
 console.log(`Found ${result.total} matches!`)
-const items = result.results.map(res => res.object)
+const tags = result.results.map(res => res.object)
 ```
 
 The library provides access to all the assets that exist in your space.

@@ -27,7 +27,7 @@ gem install --user-install bundler jekyll
 Finally, to build and view, run:
 
 ```
-npm start
+yarn start
 ```
 
 ## Deploying

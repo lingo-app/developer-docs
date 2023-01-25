@@ -26,12 +26,12 @@ This screenshot shows the kits as they appear in Lingo.
 
 | Properties                                      |                                                           |
 |-------------------------------------------------|-----------------------------------------------------------|
+| images<span class="arg-type">object</span>      | If set, an object containing the cover image for the kit. |
 | kit_uuid<span class="arg-type">string</span>    | The unique identifier for the kit                         |
-| space_id<span class="arg-type">number</span>    | The id of the space that owns the kit.                    |
 | name<span class="arg-type">string</span>        | The name of the kit.                                      |
+| space_id<span class="arg-type">number</span>    | The id of the space that owns the kit.                    |
 | status<span class="arg-type">string</span>      | The status of the kit (always `active`).                  |
 | use_version<span class="arg-type">string</span> | The recommended version of the kit.                       |
-| images<span class="arg-type">object</span>      | If set, an object containing the cover image for the kit. |
 
 ## Kit Version
 

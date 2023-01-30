@@ -122,32 +122,29 @@ $sk-graphite-4: #84878d;
 $sk-graphite-6: #adafb3;
 $sk-graphite-8: #d6d7d9;
 
-$color-quaternary-dark: #478e87;
-$color-tertiary-dark: #f4ae22;
-$color-quaternary-lighter: #c5ebe8;
-$color-neutral-dark: #cccccc;
-$color-neutral-light: #ebebeb;
-$color-neutral-lighter: #f2f2f2;
-$color-quaternary-light: #a7e0dc;
-$color-tertiary: #fecb00;
-$color-neutral-lightest: #fafafa;
-$color-quaternary: #6dccc4;
-$color-primary-dark: #cf4a4a;
-$color-neutral-darkest: #2a2a2a;
-$color-tertiary-light: #ffdb80;
-$color-primary: #ff6161;
-$color-secondary-lighter: #b9d4ff;
-$color-primary-lighter: #ffd2d6;
-$color-secondary-light: #96beff;
-$color-secondary: #5586ff;
-$color-tertiary-lighter: #ffe7b3;
+
+$color-primary-dark: #3e3fd1;
+$color-primary: #4349dc;
+$color-primary-light: #6066e3;
+
+$color-secondary-dark: #d31a5f;
+$color-secondary: #e41d61;
+$color-secondary-light: #e73f78;
+
 $color-feedback-warning: #ffac26;
 $color-feedback-error: #ff4444;
-$color-primary-light: #ff8e99;
-$color-neutral-darker: #757575;
-$color-neutral-white: #ffffff;
 $color-feedback-success: #00c851;
-$color-secondary-dark: #4065bf;
+
+$color-neutral-black: #242425;
+$color-neutral-darkest: #58595a;
+$color-neutral-darker: #767678;
+$color-neutral-dark: #a3a4a6;
+$color-neutral: #d4d5d7;
+$color-neutral-light: #e1e2e4;
+$color-neutral-lighter: #eeeff0;
+$color-neutral-lightest: #fafafa;
+$color-neutral-white: #ffffff;
+
 
 //Actions (Links and buttons)
 $action-high: $color-primary;
@@ -169,7 +166,7 @@ $negative-low: rgba($sk-red, 0.5);
 $negative-ultra-low: $sk-red-8;
 
 //Text (dark on light backgrounds)
-$text-dark: $color-neutral-darkest; // 16
+$text-dark: $color-neutral-black; // 16
 $text-medium: $color-neutral-darker; //60
 $text-light: $color-neutral-dark; //80
 

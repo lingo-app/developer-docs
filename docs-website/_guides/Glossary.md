@@ -103,6 +103,7 @@ There are a few types of items:
 - Heading: Larger text used to create separation between groups of content
 - Code Snippet: A block of code to be displayed inline with other content
 - Guide: A block of code to be displayed inline with other content
+- Product: A [product](#product) placed in the kit
 
 ![Items](../../images/glossary_items.png)
 
@@ -117,6 +118,8 @@ There are a few types of items:
 | type<span class="arg-type">`asset`, `inline_note`, `heading`, `supporting_image`, `code_snippet`, `guide`</span> | A relative order of the item in the section.                        |
 | asset_uuid<span class="arg-type">string or null</span>                                                           | If type is `asset` or `supporting_image`, the uuid of the asset.    |
 | asset<span class="arg-type">[Asset](#asset)</span>                                                               | If type is `asset` or `supporting_image`, the data for the asset.   |
+| product_uuid<span class="arg-type">string or null</span>                                                         | If type is `product`, the uuid of the product.                      |
+| product<span class="arg-type">[Product](#product)</span>                                                         | If type is `product`, the product with its variants.                |
 | data<span class="arg-type">object</span>                                                                         | For headings and inline notes, access the text with `data.content`. |
 
 ### Item Data
@@ -262,3 +265,86 @@ For assets that are exportable to different types, a filecut dictionary is inclu
 |  | Sketch Layer Style           | Sketch        | SKETCH_LAYER_STYLE |
 |  | Sketch Text Style            | Sketch        | SKETCH_TEXT_STYLE  |
 |  | Zip                          | Container     | ZIP                |
+
+## Product
+
+Products are structured records built from the fields of a [Product Type](#product-type). A product holds the shared values; its [Variants](#variant) are the individual SKUs.
+
+Products are not tied to a kit. Placing a product in a kit creates an [Item](#item) of type `product`, and publishing a kit version freezes a copy of the product with `source_uuid` set to the live product.
+
+| Properties                                                    |                                                                                           |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| uuid<span class="arg-type">string</span>                      | The unique identifier for the product                                                     |
+| product_type_uuid<span class="arg-type">string</span>         | The product type that defines the product's fields.                                       |
+| name<span class="arg-type">string</span>                      | The product's name, copied from its name field.                                           |
+| status<span class="arg-type">string</span>                    | `active` or `archived`.                                                                   |
+| fields<span class="arg-type">[string:[Field Value](#field-value)]</span> | Field values keyed by the field's `identifier`.                                |
+| options<span class="arg-type">[object]</span>                 | The fields that distinguish variants, as `{ field_uuid, display_order }`.                 |
+| market_uuid<span class="arg-type">string or null</span>       | The product's [Market](#market), if any.                                                  |
+| source_uuid<span class="arg-type">string or null</span>       | For a frozen copy in a kit version, the uuid of the live product.                         |
+| counts<span class="arg-type">object</span>                    | Counts of `variants`, `active_variants`, `options` and `markets`.                         |
+| product_type<span class="arg-type">[Product Type](#product-type)</span> | The product type with its fields, when fetched directly.                        |
+| variants<span class="arg-type">[ [Variant](#variant) ]</span> | Every non-deleted variant, when fetched directly or requested.                            |
+| preview_asset<span class="arg-type">[Asset](#asset)</span>    | The first image from the product's asset fields, when listing.                            |
+
+### Variant
+
+A variant is one SKU of a product. Variants inherit every field value from the product and may override any of them. The fields listed in the product's `options` are what tell variants apart.
+
+| Properties                                                    |                                                                                           |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| uuid<span class="arg-type">string</span>                      | The unique identifier for the variant                                                     |
+| product_uuid<span class="arg-type">string</span>              | The product the variant belongs to.                                                       |
+| availability<span class="arg-type">string</span>              | `draft`, `hidden`, `coming_soon`, `available` or `retired`.                               |
+| option_values<span class="arg-type">[string:string]</span>    | The variant's values for the product's option fields, keyed by field name.                |
+| fields<span class="arg-type">[string:[Field Value](#field-value)]</span> | Field values keyed by identifier, each marked `override` or `inherited`.       |
+| market_uuid<span class="arg-type">string or null</span>       | A market that overrides the product's market.                                             |
+| computed_market_uuid<span class="arg-type">string or null</span> | The variant's market, falling back to the product's.                                   |
+
+### Field Value
+
+Each entry in a product or variant's `fields` carries the value in a shape determined by the field type, plus a `source`: `null` on products, `override` or `inherited` on variants.
+
+| Field type                                   | Shape                                                                                      |
+|----------------------------------------------|--------------------------------------------------------------------------------------------|
+| text, name, description, sku, date, boolean  | `{ value, source }`                                                                        |
+| number, price                                | `{ value, source }` where `value` is a fixed-point string using the field's decimals       |
+| select                                       | `{ option: { uuid, value, label }, source }`                                               |
+| multiselect                                  | `{ options: [ { uuid, value, label } ], source }`                                          |
+| asset, images                                | `{ assets: [ { asset_uuid, display_order, inherited, asset } ], source }`                  |
+
+## Product Type
+
+A product type defines the set of fields its products carry.
+
+| Properties                                                    |                                                                   |
+|---------------------------------------------------------------|-------------------------------------------------------------------|
+| uuid<span class="arg-type">string</span>                      | The unique identifier for the product type                        |
+| name<span class="arg-type">string</span>                      | The name of the product type.                                     |
+| description<span class="arg-type">string</span>               | A description, if any.                                            |
+| fields<span class="arg-type">[ [Product Type Field](#product-type-field) ]</span> | The field definitions.                        |
+| counts<span class="arg-type">object</span>                    | Counts of `fields` and `products`.                                |
+
+### Product Type Field
+
+| Properties                                                    |                                                                                                   |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| uuid<span class="arg-type">string</span>                      | The unique identifier for the field                                                               |
+| name<span class="arg-type">string</span>                      | The display name of the field.                                                                    |
+| identifier<span class="arg-type">string</span>                | The slug used as the key in product and variant `fields`.                                         |
+| field_type<span class="arg-type">string</span>                | `text`, `number`, `date`, `select`, `multiselect`, `boolean`, `name`, `description`, `sku`, `price`, `asset` or `images`. |
+| required<span class="arg-type">bool</span>                    | Whether products must provide a value.                                                            |
+| display_order<span class="arg-type">number</span>             | A relative order of the field.                                                                    |
+| options<span class="arg-type">[object]</span>                 | For select fields, the choices as `{ uuid, value, label, display_order }`.                        |
+| config<span class="arg-type">object</span>                    | Type specific settings, such as `decimals` for number fields.                                     |
+
+## Market
+
+A market is a region or channel grouping that products and variants can be assigned to.
+
+| Properties                                                    |                                                  |
+|---------------------------------------------------------------|--------------------------------------------------|
+| uuid<span class="arg-type">string</span>                      | The unique identifier for the market             |
+| name<span class="arg-type">string</span>                      | The name of the market.                          |
+| notes<span class="arg-type">string or null</span>             | Notes about the market, if any.                  |
+| counts<span class="arg-type">object</span>                    | Count of `products` in the market.               |
